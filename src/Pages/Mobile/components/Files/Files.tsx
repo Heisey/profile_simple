@@ -4,6 +4,8 @@ import * as B from '@heisey/componentlib'
 
 import resumeImage from '../../../../assets/resume.jpg'
 import resumeFile from '../../../../assets/resume.pdf'
+// import resumeSimpleFile from '../../../../assets/resumeSimple.pdf'
+// import resumeSimpleImage from '../../../../assets/resumeSimple.jpg'
 
 import * as Styles from './styles'
 
@@ -32,7 +34,7 @@ const Files: React.FC<Props> = (props) => {
     <Styles.Files>
       <div className='content'>
         {renderFile({ src: resumeImage, href: resumeFile, text: 'Modern'})}
-        {renderFile({ src: resumeImage, href: resumeFile, text: 'Modern'})}
+        {/* {renderFile({ src: resumeSimpleImage, href: resumeSimpleFile, text: 'Simple'})} */}
       </div>
       <B.Lib.Buttons.Button.Component onClick={props.closeFiles} className='back' variant='OUTLINE' buttontheme='PRIMARY'>Cancel</B.Lib.Buttons.Button.Component>
     </Styles.Files>

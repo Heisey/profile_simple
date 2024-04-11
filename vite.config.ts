@@ -8,7 +8,6 @@ export default defineConfig({
   server: {
     port: 3500
   },
-  base: '/<REPO>/',
   plugins: [
 		macrosPlugin(),
     tsconfigPaths(),

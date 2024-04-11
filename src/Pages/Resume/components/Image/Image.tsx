@@ -11,6 +11,7 @@ interface Props {
 }
 
 const Image: React.FC<Props> = (props) => {
+  console.log('puppies image, ', props.image)
 
   return (
     <Styles.Image>
