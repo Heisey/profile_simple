@@ -47,7 +47,8 @@ export const Tablet = styled.div<Props>`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
+    background-color: pink;
   }
 
   .socialMedia {
@@ -57,7 +58,8 @@ export const Tablet = styled.div<Props>`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    background-color: orangered;
 
     /* & > * {
       fill: red;
