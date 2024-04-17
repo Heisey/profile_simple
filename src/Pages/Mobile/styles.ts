@@ -7,7 +7,7 @@ interface Props {
 
 export const Mobile = styled.div<Props>`
   background-color: ${props => props.theme.app.backgroundColor};
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -40,13 +40,7 @@ export const Mobile = styled.div<Props>`
   .nav {
     position: absolute;
     background-color: lime;
-    /* bottom: 0;
-    left: 0;
-    right: 0;
-    top: calc(100% - 5.1rem); */
     border-top: none;
-
-    /* padding: 5px 0; */
     bottom: 0;
     width: 100%;
     height: 80px;
@@ -56,7 +50,6 @@ export const Mobile = styled.div<Props>`
 
     & > * {
       width: 100%;
-      height: 100%;
       position: relative;
 
       &:not(:last-child)::after {
