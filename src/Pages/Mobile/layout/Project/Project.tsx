@@ -20,7 +20,7 @@ const Project: React.FC<Props> = (props) => {
         <B.Lib.Buttons.Button.Component onClick={() => props.changeSlide('projects', 'home')} className='back' variant='TEXT'>back</B.Lib.Buttons.Button.Component>
         <B.Lib.Typography.Title.Component className='title' theme='LIGHT'>{props.project.title}</B.Lib.Typography.Title.Component>
       </div>
-
+      
       <div className='info'>
         {props.project.paragraphs.map(dataSet => (
           <B.Lib.Typography.Text.Component theme='LIGHT'>{dataSet}</B.Lib.Typography.Text.Component>
