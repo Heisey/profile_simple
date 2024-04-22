@@ -34,21 +34,25 @@ export const Tablet = styled.div<Props>`
   .close {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 2rem;
     opacity: ${props => props.showMenu ? 1 : 0};
     transition: all 0.3s ease-in;
     transition-delay: 0.4s;
   }
 
   .content {
-    /* background-color: blue; */
-    height: 100%;
+    height: calc(100% - 10rem);
     visibility: ${props => props.showMenu ? 'visisble' : 'hidden'};
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: -3rem; */
-    background-color: pink;
+    margin-top: -3rem;
+
+    ul {
+      :not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   .socialMedia {
@@ -59,7 +63,6 @@ export const Tablet = styled.div<Props>`
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    background-color: orangered;
 
     /* & > * {
       fill: red;
@@ -80,5 +83,14 @@ export const Tablet = styled.div<Props>`
     & > :not(:last-child) {
       margin-right: 2rem;
     }
+  }
+`
+
+export const Item = styled.li`
+  font-size: 1.5rem;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
   }
 `

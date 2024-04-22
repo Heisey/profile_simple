@@ -1,12 +1,12 @@
 
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
 interface Props {
   titleSize: 'big' | 'small'
   isDesktop: boolean
 }
 
-export const Main = Styled.div<Props>`
+export const Main = styled.div<Props>`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@ export const Main = Styled.div<Props>`
 
   .title {
     font-size: ${props => props.titleSize === 'big' ? '5rem' : '2rem'};
-    margin-top: ${props => props.titleSize === 'big' ? 0 : '-1rem'};
+    margin-top: ${props => props.isDesktop ? '1rem' : '-6rem'};
     margin-bottom: ${props => props.titleSize === 'big' ? '4rem' : '1rem'};
   }
 

@@ -1,7 +1,7 @@
 
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
-export const List = Styled.div`
+export const List = styled.div`
 
   .sub-title {
     margin-top: 4rem;

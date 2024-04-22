@@ -10,15 +10,21 @@ interface Props {
   switchContent: (args: string) => void
   currentContent: string
   className?: string
-  large?: boolean
+  large: boolean
 }
 
 const Projects: React.FC<Props> = (props) => {
 
-  const list = App_Content.projects.map(dataSet => {
-    if (dataSet.name === 'home') dataSet.title = 'Home'
-    return dataSet
-  })
+  const curatedList = () => {
+    if (props.large) return App_Content.projects.filter(dataSet => dataSet.name !== 'home')
+
+    return App_Content.projects.map(dataSet => {
+      if (dataSet.name === 'home') dataSet.title = 'Home'
+      return dataSet
+    })
+  }
+
+  const list = curatedList()
 
   return (
     <Styles.Projects className={props.className}>
@@ -37,7 +43,7 @@ const Projects: React.FC<Props> = (props) => {
 }
 
 Projects.defaultProps = {
-  large: false
+  
 }
 
 export const Component = Projects

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import * as B from '@heisey/componentlib'
 
-import * as Projects from '../Projects'
+import * as App_Content from '../../content'
 import * as Styles from './styles'
 
 interface Props {
@@ -33,6 +33,8 @@ const Tablet: React.FC<Props> = (props) => {
     toggleShowMenu()
   }
 
+  const list = App_Content.projects.filter(dataSet => dataSet.name !== 'home')
+
   return (
     <Styles.Tablet showMenu={showMenu}>
       <B.Lib.Buttons.Button.Component className='icon' variant='TEXT'>
@@ -58,7 +60,13 @@ const Tablet: React.FC<Props> = (props) => {
         </div>
         <B.Assets.FA.Close onClick={toggleShowMenu} className='close' />
         <div className='content'>
-          <Projects.Component { ...props } switchContent={switchContent} large />
+          <ul>
+            {list.map(dataSet => (
+              <Styles.Item onClick={() => switchContent(dataSet.name)}>
+                {dataSet.title}
+              </Styles.Item>
+            ))}
+          </ul>
         </div>
       </div>
     </Styles.Tablet>

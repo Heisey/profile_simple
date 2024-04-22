@@ -20,6 +20,8 @@ const Main: React.FC<Props> = (props) => {
 
   const titleSize = props.project.name === 'home' ? 'big' : 'small'
   const isDesktop = screenSize.width > Core.config.sizes.TABLET
+
+  console.log('puppy test, ', isDesktop)
   
   return (
     <Styles.Main titleSize={titleSize} isDesktop={isDesktop}>
@@ -37,7 +39,7 @@ const Main: React.FC<Props> = (props) => {
           {props.project.repo && <Link.Component to={props.project.repo}>Repo</Link.Component>}
         </div>
       </div>
-      {isDesktop && <List.Component { ...props } currentContent={props.project.name} />}
+      {isDesktop && <List.Component { ...props } currentContent={props.project.name} large={isDesktop} />}
     </Styles.Main>
   )
 }

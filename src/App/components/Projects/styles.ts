@@ -23,9 +23,11 @@ const borderBottom = (args: Props) => {
 }
 
 const color = (args: Props, theme: B.Core.I.Theme) => {
-  if (args.large) return theme.app.backgroundColor
-  else if (!args.active) return 'grey'
-  return theme.typography.LIGHT
+  console.log('puppies args, ', args)
+  if (args.large) return theme.typography.LIGHT
+  // else if (!args.active) return 'grey'
+  // return theme.typography.DARK
+  return 'yellow'
 }
 
 export const Item = styled.li<Props>`
@@ -33,6 +35,7 @@ export const Item = styled.li<Props>`
   padding-bottom: 4px;
   transition: all 0.3s ease-in;
   width: fit-content;
+  color: red;
 
   :hover {
     color: ${props => props.theme.typography.LIGHT};
@@ -41,6 +44,6 @@ export const Item = styled.li<Props>`
   & > * {
     transition: all 0.3s ease-in;
     color: ${props => color(props, props.theme)};
-    font-size: ${props => props.large ? '1.5rem' : '1rem'};
+    font-size: 0.9rem;
   }
 `

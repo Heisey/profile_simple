@@ -26,9 +26,10 @@ export const Project = styled.div`
 
     /* flex-grow: 2;
     max-height: 35rem; */
-    height: calc(100% - 18rem);
+    height: calc(100% - 21rem);
     width: 80%;
     margin: 0 auto;
+    overflow-y: scroll;
 
     &>:not(:last-child) {
       margin-bottom: 1rem;

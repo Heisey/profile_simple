@@ -9,6 +9,7 @@ import * as Styles from './styles'
 interface Props {
   switchContent: (args: string) => void
   currentContent: string
+  large: boolean
 }
 
 const List: React.FC<Props> = (props) => {
