@@ -12,6 +12,16 @@ export const projects: Core.I.Project[] = [
     ]
   },
   {
+    name: 'eatNow',
+    title: 'Eat Now',
+    desc: 'Food Ordering web app with api and database',
+    paragraphs: [
+      'This project I am using to try out new tools that are becoming popular, tailwind, shadcn, react-hook-form, react-query. tanstack-table to name just a few',
+      'This was not a follow along from the original tutorial, I used the tech stack as a requirement, but have taken the design, api, project structure and built it in more of a full production app'
+    ],
+    repo: 'https://github.com/Heisey/eatnow'
+  },
+  {
     name: 'componentLib',
     title: 'Component Library',
     desc: 'Personnel Component Library for developing personnel projects',

@@ -20,8 +20,6 @@ const Main: React.FC<Props> = (props) => {
 
   const titleSize = props.project.name === 'home' ? 'big' : 'small'
   const isDesktop = screenSize.width > Core.config.sizes.TABLET
-
-  console.log('puppy test, ', isDesktop)
   
   return (
     <Styles.Main titleSize={titleSize} isDesktop={isDesktop}>
