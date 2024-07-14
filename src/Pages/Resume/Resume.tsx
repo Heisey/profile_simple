@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as B from '@heisey/componentlib'
 
 import resumeImage from '../../assets/resume.jpg'
-import resumeFile from '../../assets/resume.pdf'
+import resumeFile from '../../assets/resume2.pdf'
 import resumeSimpleImage from '../../assets/resumeSimple.jpg'
 import resumeSimpleFile from '../../assets/resumeSimple.pdf'
 
