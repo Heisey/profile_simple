@@ -1,0 +1,158 @@
+
+import { WindowWrapper } from 'components/hoc/WindowWrapper'
+import { Check, Flag } from 'lucide-react';
+import * as React from 'react'
+import styled from 'styled-components'
+
+const Terminal: React.FC = () => {
+
+  return (
+
+    <TechStackStyles>
+      <p>
+        <span style={{ fontWeight: "bold" }}>@Heisey % load_skills -A</span>
+      </p>
+
+      <LabelStyles>
+        <p>Category</p>
+        <p>Technologies</p>
+      </LabelStyles>
+
+      <ContentStyles>
+        {techStack.map((dataSet) => (
+          <li key={dataSet.category}>
+            <Check size={20} />
+            <h3>{dataSet.category}</h3>
+            <ul>
+              {dataSet.items.map((item, index) => (
+                <li key={item}>{item}{index < dataSet.items.length - 1 ? "," : ""}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ContentStyles>
+
+      <FootNoteStyles>
+        <p>
+          <Check size={20} /> 5 0f 5 stacks loaded successfully
+        </p>
+
+        <p>
+          <Flag size={15} fill='black' /> Completed in 5ms
+        </p>
+      </FootNoteStyles>
+    </TechStackStyles>
+  )
+}
+
+export const TerminalWindow = WindowWrapper(Terminal, "terminal", "Terminal")
+
+const techStack = [
+  {
+    category: "Frontend",
+    items: ["React.js", "Next.js", "TypeScript"],
+  },
+  {
+    category: "Mobile",
+    items: ["React Native", "Expo"],
+  },
+  {
+    category: "Styling",
+    items: ["Tailwind CSS", "Sass", "CSS"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express", "NestJS", "Hono"],
+  },
+  {
+    category: "Database",
+    items: ["MongoDB", "PostgreSQL"],
+  },
+  {
+    category: "Dev Tools",
+    items: ["Git", "GitHub", "Docker"],
+  },
+];
+
+const TechStackStyles = styled.div({
+  fontSize: "0.875rem",
+  fontFamily: '"Roboto Mono", monospace',
+  padding: "1.25rem"
+})
+
+const LabelStyles = styled.div({
+  display: "flex",
+  alignItems: "center",
+
+  marginInlineStart: "2.5rem",
+  marginTop: "1.75rem",
+
+  "& p:first-of-type": {
+    width: "8rem"
+  }
+})
+
+const ContentStyles = styled.ul({
+  paddingTop: "1.25rem",     // py-5
+  paddingBottom: "1.25rem",
+
+  marginTop: "1.25rem",      // my-5
+  marginBottom: "1.25rem",
+
+  borderTopWidth: "1px",     // border-y
+  borderBottomWidth: "1px",
+  borderTopStyle: "dashed",  // border-dashed
+  borderBottomStyle: "dashed",
+
+  // space-y-1
+  "& > * + *": {
+    marginTop: "0.25rem"
+  },
+
+  "& li": {
+    display: "flex",
+    alignItems: "center",
+
+    "& > :first-child": {
+      color: "#00A154",  // text-[#00A154]
+      width: "1.25rem"   // w-5
+    },
+
+    "& h3": {
+      fontWeight: 600,          // font-semibold
+      color: "#00A154",         // text-[#00A154]
+      width: "8rem",            // w-32 (32 * 0.25rem)
+      marginInlineStart: "1.25rem" // ms-5 (logical margin start)
+    },
+
+    "& ul": {
+      display: "flex",
+      alignItems: "center",
+      gap: "0.75rem"
+    }
+
+  }
+
+})
+
+const FootNoteStyles = styled.div({
+  color: "#00A154",
+
+  "& p": {
+    display: "flex",
+    alignItems: "center",
+
+    "& svg": {
+      width: "1.25rem",
+      marginInlineEnd: "1.25rem"
+    }
+  },
+
+  "& p:last-of-type": {
+    color: "black"
+  },
+
+  "& > * + *": {
+    marginTop: "0.25rem"
+  }
+})

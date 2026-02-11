@@ -1,0 +1,57 @@
+
+import * as React from 'react'
+import dayjs from 'dayjs'
+import styled from 'styled-components';
+
+import { iconHover } from "utils"
+
+export const System: React.FC = () => {
+
+    return (
+
+        <SystemStyles>
+            <ul>
+                {navIcons.map(dataSet => (
+                <li key={dataSet.id}><NavIconStyles key={dataSet.id} src={dataSet.img} alt={`icon-${dataSet.id}`} /></li>
+                ))}
+            </ul>
+
+            <time>{ dayjs().format("ddd MMM D h:mm A")}</time>
+        </SystemStyles>
+    )
+}
+
+const navIcons = [
+  {
+    id: 1,
+    img: "/icons/wifi.svg",
+  },
+  {
+    id: 2,
+    img: "/icons/search.svg",
+  },
+  {
+    id: 3,
+    img: "/icons/user.svg",
+  },
+  {
+    id: 4,
+    img: "/icons/mode.svg",
+  },
+];
+
+const SystemStyles = styled.div({
+      display: "flex",
+      alignItems: "center",
+      gap: "1.25rem", // gap-5 = 20px
+
+    "& ul": {
+      display: "flex",
+      alignItems: "center",
+      gap: "1.25rem", // gap-5 = 20px
+    }
+})
+
+const NavIconStyles = styled.img`
+    ${iconHover}
+`
