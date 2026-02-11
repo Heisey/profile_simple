@@ -2,11 +2,10 @@
 import * as React from "react"
 import { useGlobalStore } from "store"
 import styled from "styled-components"
-import type { FeatureWindowKey } from "types"
+import { menuItems, MENUS } from "config"
+import type { MenuEntry } from "types"
 
-export interface MenuProps {}
-
-export const Menu: React.FC<MenuProps> = () => {
+export const Menu: React.FC = () => {
   const [openId, setOpenId] = React.useState<number | null>(null)
   const rootRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -52,41 +51,6 @@ export const Menu: React.FC<MenuProps> = () => {
     </MenuStyles>
   )
 }
-
-/** ===== Menu data ===== */
-
-type MenuEntry =
-  | {
-      type: "item"
-      label: string
-      shortcut?: string
-      disabled?: boolean
-      featureWindow?: FeatureWindowKey
-      submenu?: MenuEntry[]
-    }
-  | { type: "separator" }
-
-const MENUS: Record<string, MenuEntry[]> = {
-  Projects: [
-    { type: "item", label: "View All Projects", shortcut: "⌘ P" },
-    {
-      type: "item",
-      label: "Featured",
-      submenu: [
-        { type: "item", label: "Builder" },
-        { type: "item", label: "Nexus", },
-        { type: "separator" },
-        { type: "item", label: "Open GitHub", shortcut: "⌘ G" },
-      ],
-    },
-  ],
-  Resume: [
-    { type: "item", label: "View Resume", shortcut: "⌘ R", featureWindow: "pdfReader" },
-    { type: "item", label: "Download PDF", shortcut: "⇧ ⌘ R", featureWindow: "pdfReader" },
-  ],
-}
-
-/** ===== Components ===== */
 
 interface MenuItemProps {
   id: number
@@ -256,15 +220,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
     </MenuItemWrap>
   )
 }
-
-/** ===== Items ===== */
-
-const menuItems: { id: number; name: string }[] = [
-  { id: 1, name: "Projects" },
-  { id: 2, name: "Resume" },
-]
-
-/** ===== Styles ===== */
 
 const MenuStyles = styled.div({
   display: "flex",

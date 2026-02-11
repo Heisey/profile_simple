@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { useGlobalStore } from "store"
 import type { DockApp } from "types"
 import { gsap } from 'utils'
+import { dockApps, tempDockApps } from 'config'
 
 export const Dock: React.FC = () => {
     const featureWindows = useGlobalStore(store => store.featureWindows)
@@ -70,7 +71,6 @@ export const Dock: React.FC = () => {
         if (featureWindows.pdfReader.isOpen) return true
         return false
     }
-
 
     return (
         <DockStyles>
@@ -139,53 +139,6 @@ const TempOpenApp: React.FC<TempOpenAppProps> = (props) => {
     )
 }
 
-export const dockApps: DockApp[] = [
-    {
-        id: "finder",
-        name: "Portfolio", // was "Finder"
-        icon: "/images/finder.png",
-        canOpen: true,
-    },
-    {
-        id: "safari",
-        name: "Articles", // was "Safari"
-        icon: "/images/safari.png",
-        canOpen: true,
-    },
-    {
-        id: "photos",
-        name: "Gallery", // was "Photos"
-        icon: "/images/photos.png",
-        canOpen: true,
-    },
-    {
-        id: "contact",
-        name: "Contact", // or "Get in touch"
-        icon: "/images/contact.png",
-        canOpen: true,
-    },
-    {
-        id: "terminal",
-        name: "Skills", // was "Terminal"
-        icon: "/images/terminal.png",
-        canOpen: true,
-    },
-    // {
-    //     id: "trash",
-    //     name: "Archive", // was "Trash"
-    //     icon: "/images/trash.png",
-    //     canOpen: false,
-    // },
-]
-
-const tempDockApps = {
-    pdfReader: {
-        id: "pdfReader",
-        name: "Resume",
-        icon: "/images/pdfReader.png",
-        canOpen: true
-    }
-}
 
 const DockStyles = styled.section({
     position: "absolute",

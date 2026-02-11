@@ -3,6 +3,7 @@ import { WindowWrapper } from 'components/hoc/WindowWrapper'
 import { Check, Flag } from 'lucide-react';
 import * as React from 'react'
 import styled from 'styled-components'
+import { techStack } from 'config';
 
 const Terminal: React.FC = () => {
 
@@ -46,33 +47,6 @@ const Terminal: React.FC = () => {
 }
 
 export const TerminalWindow = WindowWrapper(Terminal, "terminal", "Terminal")
-
-const techStack = [
-  {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
-  },
-  {
-    category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
-  },
-  {
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
-  },
-  {
-    category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
-  },
-];
 
 const TechStackStyles = styled.div({
   fontSize: "0.875rem",

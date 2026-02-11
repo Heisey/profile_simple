@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { gsap } from 'utils'
+import { fontWeight } from 'config'
 
 export const Hero: React.FC = () => {
     const titleRef = React.useRef<HTMLHeadingElement | null>(null)
@@ -44,11 +45,6 @@ export const Hero: React.FC = () => {
             </SmallScrennStyles>
         </HeroStyles>
     )
-}
-
-const fontWeight = {
-    subTitle: { min: 100, max: 400, default: 100 },
-    title: { min: 400, max: 700, default: 400 }
 }
 
 interface RenderTextArgs {

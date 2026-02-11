@@ -4,26 +4,13 @@ import { WindowWrapper } from "components/hoc/WindowWrapper"
 import { ChevronLeft, ChevronRight, Minus, Plus, FileText } from "lucide-react"
 
 import { Document, Page, pdfjs } from "react-pdf"
+import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url"
 import "react-pdf/dist/Page/AnnotationLayer.css"
 import "react-pdf/dist/Page/TextLayer.css"
+import { resumes } from "config"
 
 // ✅ pdf worker (works in Vite + most bundlers)
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
-).toString()
-
-type ResumeDoc = {
-  id: string
-  title: string
-  file: string // public URL (ex: "/pdf/resume-frontend.pdf")
-}
-
-const resumes: ResumeDoc[] = [
-  { id: "fe", title: "Resume – Frontend", file: "/pdf/resume-frontend.pdf" },
-  { id: "be", title: "Resume – Backend", file: "/pdf/resume-backend.pdf" },
-  { id: "lead", title: "Resume – Tech Lead", file: "/pdf/resume-lead.pdf" },
-]
+pdfjs.GlobalWorkerOptions.workerSrc = workerSrc
 
 const PdfReader: React.FC = () => {
   const [activeId, setActiveId] = React.useState(resumes[0]?.id ?? "")

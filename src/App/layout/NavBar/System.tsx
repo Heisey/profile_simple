@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import styled from 'styled-components';
 
 import { iconHover } from "utils"
+import { navIcons } from 'config';
 
 export const System: React.FC = () => {
 
@@ -20,25 +21,6 @@ export const System: React.FC = () => {
         </SystemStyles>
     )
 }
-
-const navIcons = [
-  {
-    id: 1,
-    img: "/icons/wifi.svg",
-  },
-  {
-    id: 2,
-    img: "/icons/search.svg",
-  },
-  {
-    id: 3,
-    img: "/icons/user.svg",
-  },
-  {
-    id: 4,
-    img: "/icons/mode.svg",
-  },
-];
 
 const SystemStyles = styled.div({
       display: "flex",

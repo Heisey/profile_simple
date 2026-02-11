@@ -6,14 +6,10 @@ import { Hero } from "./layout/Hero"
 import { Dock } from "./layout/Dock"
 import { TerminalWindow } from "features/Terminal"
 import { SafariWindow } from "features/Safari"
-import { ResumeWindow } from "features/Resume"
-import { PdfReaderWindow } from "features/PdfReader/PdfReader"
-import { useGlobalStore } from "store"
+import { PdfReaderWindow } from "features/PdfReader"
 
 export const App: React.FC = () => {
-  const featureWindow = useGlobalStore(store => store.featureWindows)
 
-  console.log("puppy windows, ", featureWindow)
   return (
     <Main>
       <NavBar />
@@ -21,7 +17,6 @@ export const App: React.FC = () => {
       <Dock />
 
       <PdfReaderWindow />
-      <ResumeWindow />
       <SafariWindow />
       <TerminalWindow />
     </Main>
