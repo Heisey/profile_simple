@@ -7,11 +7,13 @@ import { useGlobalStore } from "store"
 import type { DockApp } from "types"
 import { gsap } from 'utils'
 import { dockApps, tempDockApps } from 'config'
+import { LaunchpadIcon } from './LaunchPad'
 
 export const Dock: React.FC = () => {
     const featureWindows = useGlobalStore(store => store.featureWindows)
     const openWindow = useGlobalStore(store => store.openWindow)
     const closeWindow = useGlobalStore(store => store.closeWindow)
+    const openLaucnPadWindow = useGlobalStore(store => store.openLaunchPad)
 
     const dockContainerRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -71,10 +73,36 @@ export const Dock: React.FC = () => {
         if (featureWindows.pdfReader.isOpen) return true
         return false
     }
-
     return (
         <DockStyles>
             <DockContainerStyles ref={dockContainerRef}>
+                <DockAppStyles>
+                    <DockIconStyles
+                        type="button"
+                        aria-label="Launchpad"
+                        data-dock-icon
+                        data-tooltip-id="dock-tooltip"
+                        data-tooltip-content="Launchpad"
+                        data-tooltip-delay-show={500}
+                        $canOpen={true}
+                        onClick={openLaucnPadWindow}
+                    >
+                        <LaunchpadIcon
+                            items={[
+                                { src: "/images/finder2.png" },
+                                { src: "/images/safari.png" },
+                                { src: "/images/appStore.png" },
+                                { src: "/images/contact.png" },
+                                { src: "/images/terminal.png" },
+                                { src: "/images/pdfReader.png" },
+                                { src: "/images/settings.png" },
+                                { src: "/images/photos.png" },
+                                { src: "/images/finder2.png" },
+                            ]}
+                        />
+                    </DockIconStyles>
+                </DockAppStyles>
+
                 {dockApps.map(dataSet => (
                     <DockAppStyles key={dataSet.id}>
                         <DockIconStyles
@@ -100,7 +128,7 @@ export const Dock: React.FC = () => {
 
                 {showDivider() && <DockDividerStyles />}
 
-                {featureWindows.pdfReader.isOpen && <TempOpenApp {...tempDockApps.pdfReader as DockApp } toggleApp={toggleApp} />}
+                {featureWindows.pdfReader.isOpen && <TempOpenApp {...tempDockApps.pdfReader as DockApp} toggleApp={toggleApp} />}
 
                 <DockTooltipStyles id="dock-tooltip" place='top' />
             </DockContainerStyles>
@@ -180,45 +208,56 @@ interface DockIconStylesProps {
 }
 
 const DockIconStyles = styled.button<DockIconStylesProps>((props) => ({
-    width: "3.5rem",
-    height: "3.5rem",
+  width: "3.5rem",
+  height: "3.5rem",
+  cursor: "pointer",
+  padding: 0,
+  border: 0,
+  background: "transparent",
+  appearance: "none",
+  WebkitAppearance: "none",
+  lineHeight: 0,
+  display: "grid",
+  placeItems: "center",
 
-    cursor: "pointer",
+  // ✅ one knob controls EVERYTHING
+  "--dock-safe": "78%",
 
-    /* button reset */
-    padding: 0,
-    border: 0,
-    background: "transparent",
-    appearance: "none",
-    WebkitAppearance: "none",
-    lineHeight: 0,
+  "@media (min-width: 1920px)": {
+    width: "5rem",
+    height: "5rem",
+  },
+
+  // ✅ size any non-img child (LaunchpadIcon is a div)
+  "& > *": {
+    width: "var(--dock-safe)",
+    height: "var(--dock-safe)",
+  },
+
+  // ✅ size the pngs the same as launchpad
+  "& img, & svg": {
+    width: "var(--dock-safe)",
+    height: "var(--dock-safe)",
+    objectFit: "contain",
+    objectPosition: "center",
     display: "block",
+    opacity: props.$canOpen ? 1 : 0.6,
+    pointerEvents: "none",
+  },
 
-    "@media (min-width: 1920px)": {
-        width: "5rem",
-        height: "5rem"
-    },
-
-    "& img": {
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center",
-        display: "block",
-        opacity: props.$canOpen ? 1 : 0.6
-    },
-
-    "&:disabled": {
-        cursor: "default",
-        opacity: 0.5
-    }
+  "&:disabled": {
+    cursor: "default",
+    opacity: 0.5,
+  },
 }))
 
+
+
 const DockTooltipStyles = styled(Tooltip)({
-    "&&": {
-        background: "#bfdbfe",
-        color: "#1e3a8a",
-    },
+    // "&&": {
+    //     background: "#bfdbfe",
+    //     color: "#1e3a8a",
+    // },
 
     paddingTop: "0.25rem",
     paddingBottom: "0.25rem",
@@ -233,15 +272,15 @@ const DockTooltipStyles = styled(Tooltip)({
 
 
 const DockDividerStyles = styled.div({
-  width: "1px",
-  alignSelf: "stretch",           // fills dock height
-  marginInline: "0.35rem",        // spacing around divider
-  borderRadius: "999px",
+    width: "1px",
+    alignSelf: "stretch",           // fills dock height
+    marginInline: "0.35rem",        // spacing around divider
+    borderRadius: "999px",
 
-  // subtle macOS-ish separator: light + dark line effect
-  background:
-    "linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(0,0,0,0.20))",
+    // subtle macOS-ish separator: light + dark line effect
+    background:
+        "linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(0,0,0,0.20))",
 
-  // optional: slightly fade top/bottom like macOS
-  opacity: 0.55,
+    // optional: slightly fade top/bottom like macOS
+    opacity: 0.55,
 })

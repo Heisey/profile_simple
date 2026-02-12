@@ -3,32 +3,38 @@ import type { DockApp, ResumeDoc } from "types";
 export const dockApps: DockApp[] = [
     {
         id: "finder",
-        name: "Portfolio", // was "Finder"
-        icon: "/images/finder.png",
+        name: "Finder",
+        icon: "/images/finder2.png",
         canOpen: true,
     },
     {
         id: "safari",
         name: "Articles", // was "Safari"
-        icon: "/images/safari.png",
+        icon: "/images/safari2.png",
         canOpen: true,
     },
     {
-        id: "photos",
-        name: "Gallery", // was "Photos"
-        icon: "/images/photos.png",
+        id: "appStore",
+        name: "App Store", // was "Photos"
+        icon: "/images/appStore.png",
         canOpen: true,
     },
     {
         id: "contact",
         name: "Contact", // or "Get in touch"
-        icon: "/images/contact.png",
+        icon: "/images/contacts2.png",
         canOpen: true,
     },
     {
         id: "terminal",
         name: "Skills", // was "Terminal"
-        icon: "/images/terminal.png",
+        icon: "/images/terminal2.png",
+        canOpen: true,
+    },
+    {
+        id: "settings",
+        name: "Settings", // was "Terminal"
+        icon: "/images/settings.png",
         canOpen: true,
     },
     // {

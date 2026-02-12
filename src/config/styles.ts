@@ -30,15 +30,60 @@ export const WINDOW_LAYOUT: Record<FeatureWindowKey, React.CSSProperties> = {
     overflow: "hidden",
   },
   // add others later (finder, safari, etc)
-  finder: {},
-  contact: {},
+  finder: {
+    width: "48rem",                 // wider, feels primary
+    height: "48rem",                // optional but recommended
+    top: "6rem",
+    left: "50%",
+    transform: "translateX(-50%)",  // center it
+    backgroundColor: "#ffffff",
+    boxShadow: "0 35px 80px -20px rgba(0,0,0,0.35)",
+    borderRadius: "0.85rem",
+    overflow: "hidden",
+  },
+  contact: {
+    width: "52rem",                 // comfy, not skinny
+    height: "44rem",                // matches the ContactWindow body height
+    top: "7rem",
+    left: "50%",
+    transform: "translateX(-50%)",
+
+    backgroundColor: "#ffffff",
+    boxShadow: "0 35px 80px -20px rgba(0,0,0,0.35)",
+    borderRadius: "0.85rem",
+    overflow: "hidden",
+  },
+  appStore: {
+    width: "72rem",
+    height: "54rem",
+    top: "5rem",
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 50px 120px -30px rgba(0,0,0,0.45)",
+    borderRadius: "1rem",
+    overflow: "hidden",
+  },
+  settings: {
+    width: "56rem",
+    height: "42rem",
+    top: "6rem",
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 40px 90px -20px rgba(0,0,0,0.40)",
+    borderRadius: "0.9rem",
+    overflow: "hidden",
+  },
+
+
   resume: {},
   photos: {},
   txtfile: {},
-  imgfile: {},
+  imgfile: {}
 }
 
 export const fontWeight = {
-    subTitle: { min: 100, max: 400, default: 100 },
-    title: { min: 400, max: 700, default: 400 }
+  subTitle: { min: 100, max: 400, default: 100 },
+  title: { min: 400, max: 700, default: 400 }
 }

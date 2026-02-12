@@ -7,6 +7,11 @@ import { Dock } from "./layout/Dock"
 import { TerminalWindow } from "features/Terminal"
 import { SafariWindow } from "features/Safari"
 import { PdfReaderWindow } from "features/PdfReader"
+import { FinderWindow } from "features/Finder"
+import { AppStoreWindow } from "features/AppStore"
+import { ContactWindow } from "features/Contact"
+import { SettingsWindow } from "features/Settings"
+import { Launchpad } from "./layout/LaunchPadOverlay"
 
 export const App: React.FC = () => {
 
@@ -16,8 +21,14 @@ export const App: React.FC = () => {
       <Hero />
       <Dock />
 
+      <Launchpad />
+
+      <AppStoreWindow />
+      <ContactWindow />
+      <FinderWindow />
       <PdfReaderWindow />
       <SafariWindow />
+      <SettingsWindow />
       <TerminalWindow />
     </Main>
   )

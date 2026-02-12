@@ -19,18 +19,23 @@ const defaultWindowConfig: FeatureWindows = {
     terminal: makeDefault(),
     txtfile: makeDefault(),
     imgfile: makeDefault(),
-    pdfReader: makeDefault()
+    pdfReader: makeDefault(),
+    appStore: makeDefault(),
+    settings: makeDefault()
 };
 
 interface WindowState {
     featureWindows: FeatureWindows
     nextZInex: number
+    launchPadOpen: boolean
 }
 
 interface WindowActions {
     openWindow: (window: FeatureWindowKey, data: any) => void
     closeWindow: (window: FeatureWindowKey) => void
     focusWindow: (window: FeatureWindowKey) => void
+    openLaunchPad: () => void
+    closeLauncPad: () => void
 }
 
 export interface WindowSlice extends WindowActions, WindowState { }
@@ -43,6 +48,7 @@ export const createWindowSlice: StateCreator<
 > = (set) => ({
     featureWindows: defaultWindowConfig,
     nextZInex: INITIAL_Z_INDEX + 1,
+    launchPadOpen: false,
 
     openWindow: (window, data) => {
         set(state => {
@@ -70,6 +76,13 @@ export const createWindowSlice: StateCreator<
             cur.zIndex = state.nextZInex
             state.nextZInex++
         })
+    },
 
-    }
+    openLaunchPad: () => set(state => {
+        state.launchPadOpen = true
+    }),
+
+    closeLauncPad: () => set(state => {
+        state.launchPadOpen = false
+    })
 })

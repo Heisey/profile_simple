@@ -14,6 +14,8 @@ export interface FeatureWindows {
     txtfile: FeatureWindowConfg
     imgfile: FeatureWindowConfg
     pdfReader: FeatureWindowConfg
+    appStore: FeatureWindowConfg
+    settings: FeatureWindowConfg
 }
 
 export type FeatureWindowKey = keyof FeatureWindows
