@@ -5,17 +5,20 @@ export interface FeatureWindowConfg {
 }
 
 export interface FeatureWindows {
-    finder: FeatureWindowConfg
+    appStore: FeatureWindowConfg
+    books: FeatureWindowConfg
     contact: FeatureWindowConfg
-    resume: FeatureWindowConfg
-    safari: FeatureWindowConfg
-    photos: FeatureWindowConfg
-    terminal: FeatureWindowConfg
-    txtfile: FeatureWindowConfg
+    files: FeatureWindowConfg
+    finder: FeatureWindowConfg
     imgfile: FeatureWindowConfg
     pdfReader: FeatureWindowConfg
-    appStore: FeatureWindowConfg
+    photos: FeatureWindowConfg
+    resume: FeatureWindowConfg
+    safari: FeatureWindowConfg
     settings: FeatureWindowConfg
+    stocks: FeatureWindowConfg
+    terminal: FeatureWindowConfg
+    txtfile: FeatureWindowConfg
 }
 
 export type FeatureWindowKey = keyof FeatureWindows

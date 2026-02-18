@@ -11,17 +11,20 @@ const makeDefault = (): FeatureWindowConfg => ({
 })
 
 const defaultWindowConfig: FeatureWindows = {
-    finder: makeDefault(),
+    appStore: makeDefault(),
+    books: makeDefault(),
     contact: makeDefault(),
-    resume: makeDefault(),
-    safari: makeDefault(),
-    photos: makeDefault(),
-    terminal: makeDefault(),
-    txtfile: makeDefault(),
+    files: makeDefault(),
+    finder: makeDefault(),
     imgfile: makeDefault(),
     pdfReader: makeDefault(),
-    appStore: makeDefault(),
-    settings: makeDefault()
+    photos: makeDefault(),
+    resume: makeDefault(),
+    safari: makeDefault(),
+    settings: makeDefault(),
+    stocks: makeDefault(),
+    terminal: makeDefault(),
+    txtfile: makeDefault(),
 };
 
 interface WindowState {

@@ -74,13 +74,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
     const openWindow = useGlobalStore(store => store.openWindow)
   const entries = React.useMemo(() => MENUS[name] ?? [], [name])
 
-  // hover highlight (both panes)
   const [hoveredLabel, setHoveredLabel] = React.useState<string | null>(null)
 
-  // active submenu parent (main pane label that has submenu)
   const [activeSub, setActiveSub] = React.useState<string | null>(null)
 
-  // mount animation trigger
   const [entered, setEntered] = React.useState(false)
 
   React.useEffect(() => {
@@ -90,7 +87,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       setEntered(false)
       return
     }
-    // do NOT auto-open submenu
+    
     setActiveSub(null)
     setEntered(false)
     const t = window.setTimeout(() => setEntered(true), 0)
@@ -113,7 +110,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
         setActiveSub(null)
       }}
       onMouseEnter={() => {
-        // macOS: if any menu is open, hover switches menus
         if (!isOpen && isAnyMenuOpen) onOpenSibling(id)
       }}
     >
@@ -244,14 +240,11 @@ const MenuTitle = styled.button<{ $open: boolean }>((p) => ({
   ":hover": { background: "rgba(0,0,0,0.10)" },
 }))
 
-// anchor dropdown under title like macOS
 const DropdownShell = styled.div<{ $entered: boolean }>((p) => ({
   position: "absolute",
   top: "calc(100% + 0.25rem)",
   left: 0,
   zIndex: 9999,
-
-  // ✅ open animation without keyframes (v4+ safe)
   opacity: p.$entered ? 1 : 0,
   transform: p.$entered ? "translateY(0) scale(1)" : "translateY(6px) scale(0.985)",
   transformOrigin: "top left",
@@ -272,7 +265,7 @@ const panelBase: React.CSSProperties = {
 const DropdownOuter = styled.div({
   ...panelBase,
   position: "relative",
-  overflow: "visible", // ✅ critical so submenu can render outside
+  overflow: "visible",
 })
 
 const DropdownInner = styled.div({
@@ -284,11 +277,9 @@ const SubDropdown = styled.div<{ $entered: boolean }>((p) => ({
   ...panelBase,
   position: "absolute",
   top: 0,
-  left: "calc(100% - 6px)", // slight overlap => no gap
+  left: "calc(100% - 6px)",
   zIndex: 10000,
   overflow: "visible",
-
-  // ✅ submenu animate in too
   opacity: p.$entered ? 1 : 0,
   transform: p.$entered ? "translateX(0) scale(1)" : "translateX(-4px) scale(0.99)",
   transformOrigin: "top left",

@@ -45,7 +45,6 @@ export function WindowWrapper<P extends object>(
         const el = sectionRef.current
         if (!el) return
 
-        // only create draggable when visible/open
         if (!win.isOpen) return
 
         // ✅ create
@@ -53,7 +52,6 @@ export function WindowWrapper<P extends object>(
             onPress: () => focusWindow(windowKey),
         })
 
-        // ✅ cleanup (important in StrictMode + hot reload)
         return () => {
             drag?.kill()
         }
@@ -101,7 +99,6 @@ export function WindowWrapper<P extends object>(
 const HeaderStyles = styled.div({
   display: "flex",
   alignItems: "center",
-  // justifyContent: "space-between",
 
   padding: "0.75rem 1rem", 
 

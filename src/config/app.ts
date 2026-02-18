@@ -1,55 +1,97 @@
 import type { DockApp, ResumeDoc } from "types";
 
-export const dockApps: DockApp[] = [
+export const iosGridApps: DockApp[] = [
+  {
+    id: "files",
+    name: "Projects",
+    icon: "/apple/FolderIcon.png",
+    canOpen: true
+  },
+  {
+    id: "books",
+    name: "Resume",
+    icon: "/apple/Books.png",
+    canOpen: true
+  },
+  {
+    id: "stocks",
+    name: "Skills",
+    icon: "/apple/Stocks.png",
+    canOpen: true
+  }
+]
+
+export const iosDockApps: DockApp[] = [
+    {
+        id: "contact",
+        name: "Contacts",
+        icon: "/apple/Contacts.png",
+        canOpen: true
+    },
+    {
+        id: "safari",
+        name: "Articles",
+        icon: "/apple/Safari.png",
+        canOpen: true
+    },
+    {
+        id: "appStore",
+        name: "App Store",
+        icon: "/apple/AppStore.png",
+        canOpen: true
+    },
+    {
+        id: "settings",
+        name: "Settings",
+        icon: "/apple/SystemPreferences.png",
+        canOpen: true
+    },
+]
+
+export const macOsDockApps: DockApp[] = [
     {
         id: "finder",
         name: "Finder",
-        icon: "/images/finder2.png",
+        icon: "/apple/Finder.png",
         canOpen: true,
     },
     {
         id: "safari",
         name: "Articles", // was "Safari"
-        icon: "/images/safari2.png",
+        icon: "/apple/Safari.png",
         canOpen: true,
     },
     {
         id: "appStore",
         name: "App Store", // was "Photos"
-        icon: "/images/appStore.png",
+        icon: "/apple/AppStore.png",
         canOpen: true,
     },
     {
         id: "contact",
         name: "Contact", // or "Get in touch"
-        icon: "/images/contacts2.png",
+        icon: "/apple/Contacts.png",
         canOpen: true,
     },
     {
         id: "terminal",
         name: "Skills", // was "Terminal"
-        icon: "/images/terminal2.png",
+        icon: "/apple/Terminal.png",
         canOpen: true,
     },
     {
         id: "settings",
         name: "Settings", // was "Terminal"
-        icon: "/images/settings.png",
+        icon: "/apple/SystemPreferences.png",
         canOpen: true,
-    },
-    // {
-    //     id: "trash",
-    //     name: "Archive", // was "Trash"
-    //     icon: "/images/trash.png",
-    //     canOpen: false,
-    // },
+    }
 ]
 
 export const tempDockApps = {
     pdfReader: {
         id: "pdfReader",
         name: "Resume",
-        icon: "/images/pdfReader.png",
+        icon: "/apple/Preview.png",
         canOpen: true
     }
 }
@@ -57,7 +99,6 @@ export const tempDockApps = {
 export const resumes: ResumeDoc[] = [
   { id: "fe", title: "Resume – Frontend", file: "/files/resume.pdf" },
   { id: "be", title: "Resume – Backend", file: "/files/resume.pdf" },
-//   { id: "lead", title: "Resume – Tech Lead", file: "/pdf/resume-lead.pdf" },
 ]
 
 export const blogPosts = [
@@ -85,8 +126,14 @@ export const blogPosts = [
     },
 ];
 
+export type TechStackGroup = {
+  category: string
+  items: string[]
+}
 
-export const techStack = [
+
+
+export const techStack: TechStackGroup[] = [
   {
     category: "Frontend",
     items: ["React.js", "Next.js", "TypeScript"],

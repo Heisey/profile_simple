@@ -13,6 +13,7 @@ import {
   Youtube,
   Twitter,
 } from "lucide-react"
+import { IOSWindowWrapper } from "components/hoc/IOSWindowWrapper/IOSWindowWrapper"
 
 type Pane = "card" | "socials"
 
@@ -63,6 +64,7 @@ const ContactApp: React.FC = () => {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1200)
     } catch {
+      // TODO
       // no-op (clipboard permission)
     }
   }
@@ -250,7 +252,8 @@ const ContactApp: React.FC = () => {
   )
 }
 
-export const ContactWindow = WindowWrapper(ContactApp, "contact", "Contacts")
+export const ContactMacOsWindow = WindowWrapper(ContactApp, "contact", "Contacts")
+export const ContactIosWindow = IOSWindowWrapper(ContactApp, "contact")
 
 /* ---------------- helpers ---------------- */
 

@@ -1,7 +1,7 @@
 // components/overlays/Launchpad.tsx
 import * as React from "react"
 import styled from "styled-components"
-import { dockApps } from "config"
+import { macOsDockApps } from "config"
 import { useGlobalStore } from "store"
 
 export const Launchpad: React.FC = () => {
@@ -28,7 +28,7 @@ export const Launchpad: React.FC = () => {
       }}
     >
       <Grid>
-        {dockApps.map((app) => (
+        {macOsDockApps.map((app) => (
           <AppTile
             key={app.id}
             disabled={!app.canOpen}
@@ -51,7 +51,7 @@ export const Launchpad: React.FC = () => {
 const Overlay = styled.div({
   position: "fixed",
   inset: 0,
-  zIndex: 40, // below dock (dock is 50)
+  zIndex: 40, 
   backdropFilter: "blur(24px)",
   WebkitBackdropFilter: "blur(24px)",
   background: "rgba(0,0,0,0.15)",

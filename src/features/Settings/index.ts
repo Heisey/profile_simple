@@ -1,2 +1,4 @@
 
-export * from './Settings'
+export * from './IOSSettings'
+
+export * from './MacOsSettings'

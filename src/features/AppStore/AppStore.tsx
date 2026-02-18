@@ -10,6 +10,7 @@ import {
     ExternalLink,
     Github,
 } from "lucide-react"
+import { IOSWindowWrapper } from "components/hoc/IOSWindowWrapper/IOSWindowWrapper"
 
 type View = { type: "store" } | { type: "detail"; id: string }
 
@@ -17,10 +18,10 @@ type Project = {
     id: string
     name: string
     subtitle: string
-    icon: string // /images/...
+    icon: string 
     difficulty: 1 | 2 | 3 | 4 | 5
-    cover: string // big image shown on card
-    screenshots: string[] // slider images
+    cover: string 
+    screenshots: string[] 
     overview: string
     highlights: string[]
     whatIDid: string[]
@@ -181,11 +182,13 @@ const AppStore: React.FC = () => {
     )
 }
 
-export const AppStoreWindow = WindowWrapper(
+export const AppStoreMacOsWindow = WindowWrapper(
     AppStore,
-    "appStore", // change to "appstore" if you add a new window key
+    "appStore", 
     "App Store"
 )
+
+export const AppStoreIosWindow = IOSWindowWrapper(AppStore, "appStore")
 
 /* ---------------- Detail Page ---------------- */
 

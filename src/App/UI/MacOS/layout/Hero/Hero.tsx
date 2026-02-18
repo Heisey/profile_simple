@@ -144,26 +144,27 @@ const HeroStyles = styled.section({
         paddingRight: "2.5rem"
     }
 })
+
 const SmallScrennStyles = styled.div({
-    margin: "1.75rem", // m-7
-    backgroundColor: "rgba(252, 165, 165, 0.2)", // red-300 / 20
-    backdropFilter: "blur(16px)", // backdrop-blur-lg
-    padding: "0.75rem", // p-3
-    borderRadius: "0.375rem", // rounded-md
+    margin: "1.75rem", 
+    backgroundColor: "rgba(252, 165, 165, 0.2)", 
+    backdropFilter: "blur(16px)", 
+    padding: "0.75rem", 
+    borderRadius: "0.375rem", 
 
     position: "absolute",
-    top: "2.5rem", // top-10
+    top: "2.5rem", 
 
     "@media (min-width: 640px)": {
-        display: "none" // sm:hidden
+        display: "none" 
     },
 
     "& p": {
         flex: 1,
         fontSize: "16px",
         textAlign: "center",
-        fontFamily: "Roboto, sans-serif", // adjust if you named it differently
-        color: "#9CA3AF" // text-gray-400
+        fontFamily: "Roboto, sans-serif", 
+        color: "#9CA3AF" 
     }
 })
 

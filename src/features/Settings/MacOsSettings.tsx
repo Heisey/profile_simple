@@ -106,7 +106,7 @@ const SettingsApp: React.FC = () => {
   )
 }
 
-export const SettingsWindow = WindowWrapper(
+export const SettingsMacOsWindow = WindowWrapper(
   SettingsApp,
   "settings",
   "Settings"

@@ -9,7 +9,6 @@ import { navIcons } from 'config';
 export const System: React.FC = () => {
 
     return (
-
         <SystemStyles>
             <ul>
                 {navIcons.map(dataSet => (
@@ -25,12 +24,12 @@ export const System: React.FC = () => {
 const SystemStyles = styled.div({
       display: "flex",
       alignItems: "center",
-      gap: "1.25rem", // gap-5 = 20px
+      gap: "1.25rem", 
 
     "& ul": {
       display: "flex",
       alignItems: "center",
-      gap: "1.25rem", // gap-5 = 20px
+      gap: "1.25rem", 
     }
 })
 

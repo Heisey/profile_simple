@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Copy, MoveRight, PanelLeft, Plus, Search, Sh
 import * as React from 'react'
 import styled from 'styled-components'
 import { blogPosts } from 'config'
+import { IOSWindowWrapper } from 'components/hoc/IOSWindowWrapper/IOSWindowWrapper'
 
 const Safari: React.FC = () => {
 
@@ -67,8 +68,8 @@ const SafariHeader: React.FC = () => {
     )
 }
 
-export const SafariWindow = WindowWrapper(Safari, "safari", <SafariHeader />)
-
+export const SafariMacOsWindow = WindowWrapper(Safari, "safari", <SafariHeader />)
+export const SafariIosWindow = IOSWindowWrapper(Safari, "safari")
 
 
 const SafariStyles = styled.div({

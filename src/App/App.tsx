@@ -1,41 +1,14 @@
-import * as React from "react"
-import styled from "styled-components"
 
-import { NavBar } from "./layout/NavBar"
-import { Hero } from "./layout/Hero"
-import { Dock } from "./layout/Dock"
-import { TerminalWindow } from "features/Terminal"
-import { SafariWindow } from "features/Safari"
-import { PdfReaderWindow } from "features/PdfReader"
-import { FinderWindow } from "features/Finder"
-import { AppStoreWindow } from "features/AppStore"
-import { ContactWindow } from "features/Contact"
-import { SettingsWindow } from "features/Settings"
-import { Launchpad } from "./layout/LaunchPadOverlay"
+import { useBreakpoint } from "hooks/useBreakpoint"
+import * as React from "react"
+import { IOS } from "./UI/IOS/IOS"
+import { MacOS } from "./UI/MacOS/MacOS"
 
 export const App: React.FC = () => {
 
-  return (
-    <Main>
-      <NavBar />
-      <Hero />
-      <Dock />
-
-      <Launchpad />
-
-      <AppStoreWindow />
-      <ContactWindow />
-      <FinderWindow />
-      <PdfReaderWindow />
-      <SafariWindow />
-      <SettingsWindow />
-      <TerminalWindow />
-    </Main>
-  )
+  const isMobile = useBreakpoint(1024, "max")
+  
+  if (isMobile) return <IOS />
+  
+  return <MacOS />
 }
-
-const Main = styled.main({
-  width: "100dvw",
-  height: "100dvh",
-  overflow: "hidden",
-})
