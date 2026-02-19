@@ -8,6 +8,7 @@ import { AppStoreIosWindow } from "features/AppStore"
 import { SettingsIosWindow } from "features/Settings"
 import { BooksIosWindow } from "features/Books"
 import { NotesIosWindow } from "features/Notes"
+import { FilesIosWindow } from "features/Files"
 
 export const IOS: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const IOS: React.FC = () => {
         <AppStoreIosWindow />
         <BooksIosWindow />
         <ContactIosWindow />
+        <FilesIosWindow />
         <NotesIosWindow />
         <SafariIosWindow />
         <SettingsIosWindow />

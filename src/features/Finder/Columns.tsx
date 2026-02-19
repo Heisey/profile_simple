@@ -1,6 +1,6 @@
 
 import * as React from 'react'
-import { mockFiles, mockFolders } from './config'
+import { mockFiles, mockFolders } from 'config'
 import { SmallIcon } from './styles'
 
 import {

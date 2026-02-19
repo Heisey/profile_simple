@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { mockFiles } from './config'
+import { mockFiles } from 'config'
 
 export const IconView: React.FC = () => {
 

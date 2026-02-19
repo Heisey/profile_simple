@@ -159,3 +159,22 @@ export const techStack: TechStackGroup[] = [
     items: ["Git", "GitHub", "Docker"],
   },
 ];
+
+
+export const mockFiles = [
+  { id: "f1", name: "Resume – Tech Lead.pdf", kind: "PDF", date: "Today", icon: "📄" },
+  { id: "f2", name: "Resume – Frontend.pdf", kind: "PDF", date: "Yesterday", icon: "📄" },
+  { id: "f3", name: "Resume – Backend.pdf", kind: "PDF", date: "2 days ago", icon: "📄" },
+  { id: "f4", name: "Builder – Case Study", kind: "Folder", date: "Last week", icon: "📁" },
+  { id: "f5", name: "Nexus – Screenshots", kind: "Folder", date: "Last week", icon: "📁" },
+  { id: "f6", name: "Project Roadmap.md", kind: "Markdown", date: "Last month", icon: "📝" },
+  { id: "f7", name: "Contact.txt", kind: "Text", date: "Last month", icon: "📄" },
+  { id: "f8", name: "Gallery", kind: "Folder", date: "Last month", icon: "📁" },
+]
+
+export const mockFolders = [
+  { id: "c1", name: "Resumes", icon: "📁" },
+  { id: "c2", name: "Projects", icon: "📁" },
+  { id: "c3", name: "Screenshots", icon: "📁" },
+  { id: "c4", name: "Notes", icon: "📁" },
+]

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { SmallIcon } from './styles'
-import { mockFiles } from './config'
+import { mockFiles } from 'config'
 
 export const ListTable: React.FC = () => {
 
