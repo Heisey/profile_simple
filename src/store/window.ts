@@ -17,12 +17,12 @@ const defaultWindowConfig: FeatureWindows = {
     files: makeDefault(),
     finder: makeDefault(),
     imgfile: makeDefault(),
+    notes: makeDefault(),
     pdfReader: makeDefault(),
     photos: makeDefault(),
     resume: makeDefault(),
     safari: makeDefault(),
     settings: makeDefault(),
-    stocks: makeDefault(),
     terminal: makeDefault(),
     txtfile: makeDefault(),
 };

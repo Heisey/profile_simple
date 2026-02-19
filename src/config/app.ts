@@ -14,9 +14,9 @@ export const iosGridApps: DockApp[] = [
     canOpen: true
   },
   {
-    id: "stocks",
+    id: "notes",
     name: "Skills",
-    icon: "/apple/Stocks.png",
+    icon: "/apple/Notes.png",
     canOpen: true
   }
 ]

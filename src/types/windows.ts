@@ -11,12 +11,12 @@ export interface FeatureWindows {
     files: FeatureWindowConfg
     finder: FeatureWindowConfg
     imgfile: FeatureWindowConfg
+    notes: FeatureWindowConfg
     pdfReader: FeatureWindowConfg
     photos: FeatureWindowConfg
     resume: FeatureWindowConfg
     safari: FeatureWindowConfg
     settings: FeatureWindowConfg
-    stocks: FeatureWindowConfg
     terminal: FeatureWindowConfg
     txtfile: FeatureWindowConfg
 }
