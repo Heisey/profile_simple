@@ -1,7 +1,7 @@
-export interface FeatureWindowConfg {
+export interface FeatureWindowConfg<T = unknown> {
     isOpen: boolean,
     zIndex: number,
-    data: any
+    data: T | null
 }
 
 export interface FeatureWindows {

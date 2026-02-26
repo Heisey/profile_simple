@@ -21,21 +21,31 @@ export const navIcons = [
 
 export const MENUS: Record<string, MenuEntry[]> = {
   Projects: [
-    { type: "item", label: "View All Projects", shortcut: "⌘ P" },
+    { type: "item", label: "View All Projects", action: { kind: "window", windowId: "projects" } },
     {
       type: "item",
       label: "Featured",
       submenu: [
-        { type: "item", label: "Builder" },
-        { type: "item", label: "Nexus", },
+        { type: "item", label: "Builder", action: { kind: "window", windowId: "builder" } },
+        { type: "item", label: "Nexus", action: { kind: "window", windowId: "nexus" } },
         { type: "separator" },
-        { type: "item", label: "Open GitHub", shortcut: "⌘ G" },
+        { type: "item", label: "Open GitHub", shortcut: "⌘ G", action: { kind: "url", href: "https://github.com/yourname", target: "_blank" } },
       ],
     },
   ],
   Resume: [
-    { type: "item", label: "View Resume", shortcut: "⌘ R", featureWindow: "pdfReader" },
-    { type: "item", label: "Download PDF", shortcut: "⇧ ⌘ R", featureWindow: "pdfReader" },
+    {
+      type: "item",
+      label: "View Resume",
+      shortcut: "⌘ R",
+      action: { kind: "window", windowId: "pdfReader", props: { mode: "view" } },
+    },
+    {
+      type: "item",
+      label: "Download PDF",
+      shortcut: "⇧ ⌘ R",
+      action: { kind: "window", windowId: "pdfReader", props: { mode: "download" } },
+    },
   ],
 }
 

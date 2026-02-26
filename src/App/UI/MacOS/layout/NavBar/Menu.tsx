@@ -3,7 +3,7 @@ import * as React from "react"
 import { useGlobalStore } from "store"
 import styled from "styled-components"
 import { menuItems, MENUS } from "config"
-import type { MenuEntry } from "types"
+import type { FeatureWindowKey, MenuEntry } from "types"
 
 export const Menu: React.FC = () => {
   const [openId, setOpenId] = React.useState<number | null>(null)
@@ -71,7 +71,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   onClose,
   onOpenSibling,
 }) => {
-    const openWindow = useGlobalStore(store => store.openWindow)
+  const openWindow = useGlobalStore(store => store.openWindow)
   const entries = React.useMemo(() => MENUS[name] ?? [], [name])
 
   const [hoveredLabel, setHoveredLabel] = React.useState<string | null>(null)
@@ -87,7 +87,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       setEntered(false)
       return
     }
-    
+
     setActiveSub(null)
     setEntered(false)
     const t = window.setTimeout(() => setEntered(true), 0)
@@ -155,8 +155,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
                         setActiveSub(entry.label)
                         return
                       }
-                      if (entry.featureWindow) openWindow(entry.featureWindow, {})
-                      onClose()
+
+                      runEntry(entry, { openWindow, close: onClose })
                     }}
                   >
                     <Label>{entry.label}</Label>
@@ -194,9 +194,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
                         onClick={() => {
                           if (disabled) return
                           if (hasSub) return
-                          // TODO
-                          // if (entr)
-                          onClose()
+
+                          runEntry(sub, { openWindow, close: onClose })
                         }}
                       >
                         <Label>{sub.label}</Label>
@@ -215,6 +214,45 @@ const MenuItem: React.FC<MenuItemProps> = ({
       )}
     </MenuItemWrap>
   )
+}
+
+const runEntry = (
+  entry: Extract<MenuEntry, { type: "item" }>,
+  opts: { openWindow: (id: FeatureWindowKey, props: any) => void; close: () => void }
+) => {
+  if (entry.disabled) return
+
+  if (entry.submenu?.length) return
+
+  if ((entry as any).featureWindow) {
+    opts.openWindow((entry as any).featureWindow, {})
+    opts.close()
+    return
+  }
+
+  const action = entry.action
+  if (!action || action.kind === "none") {
+    opts.close()
+    return
+  }
+
+  switch (action.kind) {
+    case "url": {
+      window.open(action.href, action.target ?? "_blank", "noopener,noreferrer")
+      opts.close()
+      return
+    }
+    case "window": {
+      opts.openWindow("finder", action.props ?? {})
+      opts.close()
+      return
+    }
+    case "custom": {
+      action.run()
+      opts.close()
+      return
+    }
+  }
 }
 
 const MenuStyles = styled.div({

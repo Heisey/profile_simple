@@ -12,9 +12,7 @@ export const FinderSidebar: React.FC<FinderSidebarProps> = (props) => {
     const { selectedId, setSelectedId } = props
 
     return (
-
       <FinderSidebarStyles>
-
         <FinderSidebarGroupLabelStyles>Favorites</FinderSidebarGroupLabelStyles>
         <FinderSidebarListStyles>
           {sidebarItems

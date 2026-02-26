@@ -1,34 +1,26 @@
 // components/windows/ProjectsFilesIosWindow.tsx
 import * as React from "react"
 import styled from "styled-components"
-import { Search, MoreHorizontal } from "lucide-react"
 import { IOSWindowWrapper } from "components/hoc/IOSWindowWrapper/IOSWindowWrapper"
 
-// adjust path to where these live
 import { mockFiles, mockFolders } from "config"
 
 type FilesTheme = "light" | "dark"
-const FILES_THEME: FilesTheme = "light" // wire to global theme later
+const FILES_THEME: FilesTheme = "light"
 
 const filesColors = (mode: FilesTheme) => {
   const light = {
     text: "#111827",
     subText: "rgba(17,24,39,0.55)",
-    pillBg: "rgba(0,0,0,0.06)",
-    pillBorder: "rgba(0,0,0,0.08)",
-    pillText: "rgba(17,24,39,0.8)",
-    dotBg: "rgba(0,0,0,0.06)",
     active: "rgba(0,0,0,0.04)",
+    backText: "rgba(17,24,39,0.8)",
   }
 
   const dark = {
     text: "#ffffff",
     subText: "rgba(255,255,255,0.55)",
-    pillBg: "rgba(255,255,255,0.12)",
-    pillBorder: "rgba(255,255,255,0.12)",
-    pillText: "rgba(255,255,255,0.9)",
-    dotBg: "rgba(255,255,255,0.10)",
     active: "rgba(255,255,255,0.05)",
+    backText: "rgba(255,255,255,0.9)",
   }
 
   return mode === "light" ? light : dark
@@ -41,67 +33,80 @@ type ViewState =
   | { view: "home" }
   | { view: "folder"; folderId: string; folderName: string }
 
+type TileItem =
+  | { type: "folder"; id: string; name: string }
+  | { type: "file"; id: string; name: string; kind: string; date?: string; icon?: string }
+
 const folderIconSrc = "/apple/FolderIcon.png"
 
-const isFolder = (x: { kind?: string }) => (x.kind ?? "").toLowerCase() === "folder"
+const isFolderKind = (x: { kind?: string }) =>
+  (x.kind ?? "").toLowerCase() === "folder"
+
+const lensFolderItems = (folderName: string, all: FileItem[]): FileItem[] => {
+  const folder = folderName.toLowerCase()
+
+  if (folder.includes("projects")) {
+    return all.filter((x) => {
+      const n = x.name.toLowerCase()
+      return (
+        isFolderKind(x) ||
+        n.includes("builder") ||
+        n.includes("nexus") ||
+        n.includes("project")
+      )
+    })
+  }
+
+  if (folder.includes("screenshots")) {
+    return all.filter((x) => {
+      const n = x.name.toLowerCase()
+      return isFolderKind(x) || n.includes("screenshot") || n.includes("gallery")
+    })
+  }
+
+  if (folder.includes("notes")) {
+    return all.filter((x) => {
+      const k = x.kind.toLowerCase()
+      const n = x.name.toLowerCase()
+      return k.includes("markdown") || k.includes("text") || n.includes("roadmap")
+    })
+  }
+
+  // default: just folders
+  return all.filter((x) => isFolderKind(x))
+}
 
 const FilesIosGridApp: React.FC = () => {
+
   const [state, setState] = React.useState<ViewState>({ view: "home" })
-  const [q, setQ] = React.useState("")
 
   const title = state.view === "folder" ? state.folderName : "Files"
 
   const goHome = () => setState({ view: "home" })
-  const openFolder = (f: Folder) =>
-    setState({ view: "folder", folderId: f.id, folderName: f.name })
 
-  const folders = React.useMemo(() => {
-    const query = q.trim().toLowerCase()
-    const all = mockFolders as Folder[]
-    if (!query) return all
-    return all.filter((x) => x.name.toLowerCase().includes(query))
-  }, [q])
-
-  const folderItems = React.useMemo(() => {
-    // You only have a flat list, so we do a simple “folder lens”.
-    // Replace later with a real tree if you want.
-    const all = mockFiles as FileItem[]
-    if (state.view !== "folder") return []
-
-    const folder = state.folderName.toLowerCase()
-    let items = all
-
-    if (folder.includes("projects")) {
-      items = all.filter((x) => {
-        const n = x.name.toLowerCase()
-        return (
-          isFolder(x) ||
-          n.includes("builder") ||
-          n.includes("nexus") ||
-          n.includes("project")
-        )
-      })
-    } else if (folder.includes("screenshots")) {
-      items = all.filter((x) => {
-        const n = x.name.toLowerCase()
-        return isFolder(x) || n.includes("screenshot") || n.includes("gallery")
-      })
-    } else if (folder.includes("notes")) {
-      items = all.filter((x) => {
-        const k = x.kind.toLowerCase()
-        const n = x.name.toLowerCase()
-        return k.includes("markdown") || k.includes("text") || n.includes("roadmap")
-      })
-    } else {
-      items = all.filter((x) => isFolder(x))
+  const tiles: TileItem[] = React.useMemo(() => {
+    if (state.view === "home") {
+      return (mockFolders as Folder[]).map((f) => ({
+        type: "folder",
+        id: f.id,
+        name: f.name,
+      }))
     }
 
-    const query = q.trim().toLowerCase()
-    if (!query) return items
-    return items.filter((x) => (x.name + " " + x.kind).toLowerCase().includes(query))
-  }, [q, state])
-
-  const visibleTiles = state.view === "home" ? folders : folderItems
+    const items = lensFolderItems(state.folderName, mockFiles as FileItem[])
+    return items.map((x) =>
+      isFolderKind(x)
+        ? { type: "folder", id: x.id, name: x.name }
+        : {
+            type: "file",
+            id: x.id,
+            name: x.name,
+            kind: x.kind,
+            date: x.date,
+            icon: x.icon,
+          }
+    )
+  }, [state])
 
   return (
     <Shell>
@@ -116,59 +121,45 @@ const FilesIosGridApp: React.FC = () => {
             <Title>{title}</Title>
           </TitleRow>
         </HeaderLeft>
-
-        <HeaderRight>
-          <SearchPill>
-            <Search size={18} />
-            <SearchInput
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <DotBtn aria-label="More">
-              <MoreHorizontal size={18} />
-            </DotBtn>
-          </SearchPill>
-        </HeaderRight>
       </Header>
 
       <GridWrap>
         <Grid>
-          {visibleTiles.map((x: any) => {
-            const folder = state.view === "home" ? true : isFolder(x)
-            const name: string = x.name
-            const meta: string =
-              state.view === "home" ? "Folder" : `${x.kind}${x.date ? " • " + x.date : ""}`
+          {tiles.map((x) => {
+            const meta =
+              state.view === "home"
+                ? "Folder"
+                : x.type === "folder"
+                  ? "Folder"
+                  : `${x.kind}${x.date ? " • " + x.date : ""}`
 
             const onClick =
-              state.view === "home"
-                ? () => openFolder(x as Folder)
-                : folder
-                  ? () => {
-                      // allow nesting “folder” items: treat them as “openable”
-                      setState({ view: "folder", folderId: x.id, folderName: x.name })
-                    }
-                  : undefined
+              x.type === "folder"
+                ? () =>
+                    setState({
+                      view: "folder",
+                      folderId: x.id,
+                      folderName: x.name,
+                    })
+                : undefined
 
             return (
               <Tile
                 key={x.id}
                 type="button"
                 onClick={onClick}
-                $clickable={Boolean(onClick)}
-                aria-label={name}
-                title={name}
+                aria-label={x.name}
+                title={x.name}
               >
                 <IconWrap aria-hidden>
-                  {folder ? (
+                  {x.type === "folder" ? (
                     <FolderImg src={folderIconSrc} alt="" />
                   ) : (
                     <EmojiIcon>{x.icon ?? "📄"}</EmojiIcon>
                   )}
                 </IconWrap>
 
-                <Name>{name}</Name>
+                <Name>{x.name}</Name>
                 <Meta>{meta}</Meta>
               </Tile>
             )
@@ -189,7 +180,6 @@ const Shell = styled.div(() => {
     width: "100%",
     height: "100%",
     minHeight: 0,
-    // IMPORTANT: no background here (uses whatever your window provides)
     color: c.text,
     display: "grid",
     gridTemplateRows: "auto 1fr",
@@ -227,61 +217,12 @@ const Title = styled.div({
   textOverflow: "ellipsis",
 })
 
-const HeaderRight = styled.div({
-  marginTop: "0.15rem",
-})
-
-const SearchPill = styled.div(() => {
-  const c = filesColors(FILES_THEME)
-  return {
-    height: "2.6rem",
-    borderRadius: "999px",
-    background: c.pillBg,
-    border: `1px solid ${c.pillBorder}`,
-    display: "flex",
-    alignItems: "center",
-    gap: "0.65rem",
-    padding: "0 0.8rem",
-    color: c.pillText,
-    minWidth: "14rem",
-  }
-})
-
-const SearchInput = styled.input(() => {
-  const c = filesColors(FILES_THEME)
-  return {
-    appearance: "none",
-    border: 0,
-    outline: "none",
-    background: "transparent",
-    color: c.text,
-    fontSize: "1.05rem",
-    fontWeight: 850,
-    width: "10rem",
-    "::placeholder": { color: c.subText, fontWeight: 850 },
-  }
-})
-
-const DotBtn = styled.div(() => {
-  const c = filesColors(FILES_THEME)
-  return {
-    width: "2.05rem",
-    height: "2.05rem",
-    borderRadius: "999px",
-    display: "grid",
-    placeItems: "center",
-    background: c.dotBg,
-    color: c.text,
-    flex: "0 0 auto",
-  }
-})
-
 const BackBtn = styled.button(() => {
   const c = filesColors(FILES_THEME)
   return {
     border: 0,
     background: "transparent",
-    color: c.pillText,
+    color: c.backText,
     fontWeight: 950,
     fontSize: "1.05rem",
     letterSpacing: "-0.01em",
@@ -303,7 +244,7 @@ const Grid = styled.div({
   gap: "0.95rem 0.8rem",
 })
 
-const Tile = styled.button<{ $clickable: boolean }>(() => {
+const Tile = styled.button(() => {
   const c = filesColors(FILES_THEME)
   return {
     border: 0,
@@ -313,9 +254,7 @@ const Tile = styled.button<{ $clickable: boolean }>(() => {
     gap: "0.35rem",
     textAlign: "center",
     cursor: "default",
-    opacity: 1,
     ":active": { background: c.active, borderRadius: "0.9rem" },
-    ...(FILES_THEME ? {} : {}),
   }
 })
 

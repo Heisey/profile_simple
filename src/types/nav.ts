@@ -1,5 +1,11 @@
 import type { FeatureWindowKey } from "./windows"
 
+export type MenuAction =
+  | { kind: "none" }
+  | { kind: "url"; href: string; target?: "_blank" | "_self" }
+  | { kind: "window"; windowId: string; props?: Record<string, unknown> }
+  | { kind: "custom"; run: () => void }
+
 export type MenuEntry =
   | {
       type: "item"
@@ -8,5 +14,6 @@ export type MenuEntry =
       disabled?: boolean
       featureWindow?: FeatureWindowKey
       submenu?: MenuEntry[]
+      action?: MenuAction
     }
   | { type: "separator" }

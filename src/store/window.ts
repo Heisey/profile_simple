@@ -4,10 +4,10 @@ import type { StateCreator } from "zustand"
 
 const INITIAL_Z_INDEX = 1000;
 
-const makeDefault = (): FeatureWindowConfg => ({
+const makeDefault = <T = unknown>(args: T | null = null): FeatureWindowConfg<T> => ({
     isOpen: false,
     zIndex: INITIAL_Z_INDEX,
-    data: null,
+    data: args,
 })
 
 const defaultWindowConfig: FeatureWindows = {
@@ -34,7 +34,7 @@ interface WindowState {
 }
 
 interface WindowActions {
-    openWindow: (window: FeatureWindowKey, data: any) => void
+    openWindow: <T extends object | null = object | null>(window: FeatureWindowKey, data: T) => void
     closeWindow: (window: FeatureWindowKey) => void
     focusWindow: (window: FeatureWindowKey) => void
     openLaunchPad: () => void
