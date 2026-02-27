@@ -13,7 +13,6 @@ import { SettingsMacOsWindow } from "features/Settings"
 import { NavBar } from "./layout/NavBar"
 import { Hero } from "./layout/Hero"
 import { Dock } from "./layout/Dock"
-import { Launchpad } from "./layout/LaunchPadOverlay"
 
 export const MacOS: React.FC = () => {
 
@@ -22,8 +21,6 @@ export const MacOS: React.FC = () => {
             <NavBar />
             <Hero />
             <Dock />
-
-            <Launchpad />
 
             <AppStoreMacOsWindow />
             <ContactMacOsWindow />

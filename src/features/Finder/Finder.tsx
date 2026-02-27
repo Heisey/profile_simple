@@ -8,7 +8,6 @@ import { TopBar } from "./TopBar"
 import { IconView } from "./IconView"
 import { ListTable } from "./ListTable"
 import { Columns } from "./Columns"
-import { useGlobalStore } from "store"
 
 const Finder: React.FC = () => {
   // const finderWindow = useGlobalStore(store => store.featureWindows.finder)

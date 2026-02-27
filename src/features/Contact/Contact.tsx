@@ -14,34 +14,10 @@ import {
   Twitter,
 } from "lucide-react"
 import { IOSWindowWrapper } from "components/hoc/IOSWindowWrapper/IOSWindowWrapper"
+import { CONTACT } from "config"
+import type { Social } from "types"
 
 type Pane = "card" | "socials"
-
-type Social = {
-  label: string
-  url: string
-  icon:
-    | "github"
-    | "linkedin"
-    | "website"
-    | "youtube"
-    | "x"
-}
-
-const CONTACT = {
-  name: "Justin Heisey",
-  subtitle: "Software Engineer • Builder / Platform",
-  location: "Canada",
-  email: "you@example.com",
-  note: "Fastest way to reach me: email.",
-  socials: [
-    { label: "LinkedIn", url: "https://linkedin.com/in/", icon: "linkedin" },
-    { label: "GitHub", url: "https://github.com/", icon: "github" },
-    { label: "Website", url: "https://example.com", icon: "website" },
-    { label: "YouTube", url: "https://youtube.com", icon: "youtube" },
-    { label: "X", url: "https://x.com", icon: "x" },
-  ] as Social[],
-}
 
 const ContactApp: React.FC = () => {
   const [pane, setPane] = React.useState<Pane>("card")

@@ -1,4 +1,4 @@
-import type { DockApp, ResumeDoc } from "types";
+import type { DockApp, Project, ResumeDoc, Social } from "types";
 
 export const iosGridApps: DockApp[] = [
   {
@@ -178,3 +178,66 @@ export const mockFolders = [
   { id: "c3", name: "Screenshots", icon: "📁" },
   { id: "c4", name: "Notes", icon: "📁" },
 ]
+
+export const PROJECTS: Project[] = [
+    {
+        id: "builder",
+        name: "Visual Builder",
+        subtitle: "Drag-and-drop pages with SSR routing",
+        icon: "/images/finder.png",
+        difficulty: 5,
+        cover: "/images/hero-placeholder.jpg",
+        screenshots: ["/images/hero-placeholder.jpg", "/images/hero-placeholder.jpg"],
+        overview:
+            "A macOS-style visual builder that stores page documents, renders server-side for SEO, and supports structured components with constraints.",
+        highlights: [
+            "SSR-friendly page generation with publish/draft flows",
+            "Component catalog + inspector editing model",
+            "Designed for plugin-style extensions",
+        ],
+        whatIDid: [
+            "Architected the monorepo + routing patterns",
+            "Built the document schema and rendering pipeline",
+            "Implemented UI patterns for selection + inspector editing",
+        ],
+        techStack: ["TypeScript", "React", "Vite", "Nx", "Node.js", "Express", "MySQL"],
+        links: { github: "https://github.com/", live: "https://example.com" },
+    },
+    {
+        id: "eatnow",
+        name: "EatNow",
+        subtitle: "A food ordering app",
+        icon: "/images/safari.png",
+        difficulty: 2,
+        cover: "/images/hero-placeholder.jpg",
+        screenshots: ["/images/hero-placeholder.jpg"],
+        overview:
+            "enter content",
+        highlights: [
+          "enter content",
+          "enter content"
+        ],
+        whatIDid: [
+          "enter content",
+          "enter content"
+        ],
+        techStack: ["TypeScript", "React", "Vite", "Styled Components"],
+        links: { github: "https://github.com/Heisey/eatnow" },
+    },
+]
+
+
+export const CONTACT = {
+  name: "Justin Heisey",
+  subtitle: "Software Engineer • Builder / Platform",
+  location: "Canada",
+  email: "you@example.com",
+  note: "Fastest way to reach me: email.",
+  socials: [
+    { label: "LinkedIn", url: "https://linkedin.com/in/", icon: "linkedin" },
+    { label: "GitHub", url: "https://github.com/", icon: "github" },
+    { label: "Website", url: "https://example.com", icon: "website" },
+    { label: "YouTube", url: "https://youtube.com", icon: "youtube" },
+    { label: "X", url: "https://x.com", icon: "x" },
+  ] as Social[],
+}
