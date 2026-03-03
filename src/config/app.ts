@@ -127,36 +127,50 @@ export const blogPosts = [
 ];
 
 export type TechStackGroup = {
+  id: number
   category: string
   items: string[]
+  lastUpdated: Date
 }
 
 
 
 export const techStack: TechStackGroup[] = [
   {
+    id: 1,
     category: "Frontend",
     items: ["React.js", "Next.js", "TypeScript"],
+    lastUpdated: new Date()
   },
   {
+    id: 2,
     category: "Mobile",
     items: ["React Native", "Expo"],
+    lastUpdated: new Date()
   },
   {
+    id: 3,
     category: "Styling",
     items: ["Tailwind CSS", "Sass", "CSS"],
+    lastUpdated: new Date()
   },
   {
+    id: 4,
     category: "Backend",
     items: ["Node.js", "Express", "NestJS", "Hono"],
+    lastUpdated: new Date()
   },
   {
+    id: 5,
     category: "Database",
     items: ["MongoDB", "PostgreSQL"],
+    lastUpdated: new Date()
   },
   {
+    id: 6,
     category: "Dev Tools",
     items: ["Git", "GitHub", "Docker"],
+    lastUpdated: new Date()
   },
 ];
 
