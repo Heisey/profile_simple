@@ -43,7 +43,7 @@ const SettingsIosApp: React.FC = () => {
 
               <Divider />
 
-              <RowButton onClick={() => setRoute("appearance")}>
+              <RowButton disabled onClick={() => setRoute("appearance")}>
                 <Left>
                   <IconDot $bg="#a855f7" />
                   <RowTitle>Appearance</RowTitle>
@@ -143,10 +143,9 @@ export const SettingsIosWindow = IOSWindowWrapper(
 /* ================= Layout (iOS) ================= */
 
 const Shell = styled.div({
-  height: "40rem",
+  height: "100%",
   display: "grid",
   gridTemplateRows: "3.25rem 1fr",
-  background: "#f2f2f7", // iOS grouped background
 })
 
 const TopBar = styled.div({
@@ -226,6 +225,11 @@ const RowButton = styled.button({
   ...RowBase,
   cursor: "default",
   ":active": { background: "rgba(0,0,0,0.04)" },
+
+  "&:disabled": {
+    color: "lightgray",
+    cursor: "not-allowed"
+  }
 })
 
 const RowStatic = styled.div({
@@ -243,26 +247,18 @@ const Right = styled.div({
   display: "flex",
   alignItems: "center",
   gap: "0.35rem",
-  color: "rgba(17,24,39,0.5)",
-  flexShrink: 0,
+  color: "inherit",
+  marginRight: "2rem"
 })
 
 const RowTitle = styled.div({
   fontWeight: 700,
   fontSize: "0.95rem",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
 })
 
 const RightValue = styled.div({
   fontWeight: 600,
   fontSize: "0.9rem",
-  color: "rgba(17,24,39,0.55)",
-  maxWidth: "14rem",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
 })
 
 const IconDot = styled.div<{ $bg: string }>((p) => ({

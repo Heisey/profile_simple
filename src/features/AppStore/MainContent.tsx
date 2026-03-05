@@ -39,7 +39,7 @@ export const MainContent: React.FC<MainContentProps> = (props) => {
                 </div>
 
                 <div className='grid'>
-                    {filtered.map((p) => <ProjectCard {...p} openDetail={openDetail} />)}
+                    {filtered.map((p) => <ProjectCard key={p.id} {...p} openDetail={openDetail} />)}
                 </div>
             </div>
         </MainContentStyles>

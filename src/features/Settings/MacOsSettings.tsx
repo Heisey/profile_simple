@@ -27,6 +27,7 @@ const SettingsApp: React.FC = () => {
           <NavItem
             $active={tab === "theme"}
             onClick={() => setTab("theme")}
+            disabled
           >
             <Palette size={16} />
             Appearance
@@ -154,11 +155,20 @@ const NavItem = styled.button<{ $active: boolean }>((p) => ({
   color: "#111827",
   transition: "background 120ms ease",
 
-  ":hover": {
+  "&:hover": {
     background: p.$active
       ? "rgba(59,130,246,0.14)"
       : "rgba(0,0,0,0.05)",
+
+      "&:disabled": {
+        background: "transparent"
+      }
   },
+
+  "&:disabled": {
+    color: "lightgrey",
+    cursor: "not-allowed"
+  }
 }))
 
 /* ================= Main ================= */

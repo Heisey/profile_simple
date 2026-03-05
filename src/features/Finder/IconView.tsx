@@ -5,16 +5,16 @@ import { mockFiles } from 'config'
 
 export const IconView: React.FC = () => {
 
-    return (
-        <IconGrid>
-            {mockFiles.map((f) => (
-            <IconCard key={f.id}>
-                <IconThumb>{f.icon}</IconThumb>
-                <IconName title={f.name}>{f.name}</IconName>
-            </IconCard>
-            ))}
-        </IconGrid>
-    )
+  return (
+    <IconGrid>
+      {mockFiles.map((f) => (
+        <IconCard key={f.id}>
+          <IconThumb>{f.icon}</IconThumb>
+          <IconName title={f.name}>{f.name}</IconName>
+        </IconCard>
+      ))}
+    </IconGrid>
+  )
 }
 
 const IconGrid = styled.div({
