@@ -3,7 +3,7 @@ import * as React from "react"
 import { useGlobalStore } from "store"
 import styled from "styled-components"
 import { menuItems, MENUS } from "config"
-import type { FeatureWindowKey, MenuEntry } from "types"
+import type { FeatureWindowKey, FeatureWindows, MenuEntry } from "types"
 
 export const Menu: React.FC = () => {
   const [openId, setOpenId] = React.useState<number | null>(null)
@@ -243,7 +243,8 @@ const runEntry = (
       return
     }
     case "window": {
-      opts.openWindow("finder", action.props ?? {})
+      const windowId = action.windowId as keyof FeatureWindows
+      opts.openWindow(windowId, action.props ?? {})
       opts.close()
       return
     }

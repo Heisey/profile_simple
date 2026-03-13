@@ -26,35 +26,36 @@ export function WindowWrapper<P extends object>(
     const win = useGlobalStore((s) => s.featureWindows[windowKey])
     const focusWindow = useGlobalStore(s => s.focusWindow)
     const sectionRef = React.useRef<HTMLElement | null>(null)
+    const headerRef = React.useRef<HTMLDivElement | null>(null)
 
     useGSAP(() => {
-        const el = sectionRef.current
+      const el = sectionRef.current
 
-        if (!el || !win.isOpen) return
+      if (!el || !win.isOpen) return
 
-        el.style.display = "block"
+      el.style.display = "block"
 
-        gsap.fromTo(
-            el,
-            { scale: 0.8, opacity: 0, y: 40 },
-            { scale: 1, opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }
-        )
-      }, [win.isOpen])
+      gsap.fromTo(
+        el,
+        { scale: 0.8, opacity: 0, y: 40 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }
+      )
+    }, [win.isOpen])
 
-      useGSAP(() => {
-        const el = sectionRef.current
-        if (!el) return
+    useGSAP(() => {
+      const el = sectionRef.current
+      const header = headerRef.current
 
-        if (!win.isOpen) return
+      if (!el || !header || !win.isOpen) return
 
-        // ✅ create
-        const [drag] = Draggable.create(el, {
-            onPress: () => focusWindow(windowKey),
-        })
+      const [drag] = Draggable.create(el, {
+        trigger: header,
+        onPress: () => focusWindow(windowKey),
+      })
 
-        return () => {
-            drag?.kill()
-        }
+      return () => {
+        drag?.kill()
+      }
     }, { dependencies: [win.isOpen] })
 
 
@@ -82,9 +83,9 @@ export function WindowWrapper<P extends object>(
           ...(WINDOW_LAYOUT[windowKey] ?? {}),
         }}
       >
-        <HeaderStyles>
-            <WindowControls windowKey={windowKey} />
-            {renderHeader()}
+        <HeaderStyles ref={headerRef}>
+          <WindowControls windowKey={windowKey} />
+          {renderHeader()}
         </HeaderStyles>
         <Component {...componentProps} />
       </section>
@@ -100,17 +101,17 @@ const HeaderStyles = styled.div({
   display: "flex",
   alignItems: "center",
 
-  padding: "0.75rem 1rem", 
+  padding: "0.75rem 1rem",
 
-  borderTopLeftRadius: "0.5rem",  
+  borderTopLeftRadius: "0.5rem",
   borderTopRightRadius: "0.5rem",
 
-  backgroundColor: "#f9fafb",     
-  borderBottom: "1px solid #e5e7eb", 
+  backgroundColor: "#f9fafb",
+  borderBottom: "1px solid #e5e7eb",
 
   userSelect: "none",
-  fontSize: "0.875rem",           
-  color: "#9ca3af",               
+  fontSize: "0.875rem",
+  color: "#9ca3af",
 
   "& > p, & > h2": {
     margin: 0,

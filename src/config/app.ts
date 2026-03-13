@@ -49,12 +49,12 @@ export const iosDockApps: DockApp[] = [
 ]
 
 export const macOsDockApps: DockApp[] = [
-    {
-        id: "finder",
-        name: "Finder",
-        icon: "/apple/Finder.png",
-        canOpen: true,
-    },
+    // {
+    //     id: "finder",
+    //     name: "Finder",
+    //     icon: "/apple/Finder.png",
+    //     canOpen: true,
+    // },
     {
         id: "safari",
         name: "Articles", // was "Safari"
@@ -97,8 +97,7 @@ export const tempDockApps = {
 }
 
 export const resumes: ResumeDoc[] = [
-  { id: "fe", title: "Resume – Frontend", file: "/files/resume.pdf" },
-  { id: "be", title: "Resume – Backend", file: "/files/resume.pdf" },
+  { id: "simple", title: "Simple", file: "/files/resume.pdf" },
 ]
 
 export const blogPosts = [
@@ -218,7 +217,7 @@ export const PROJECTS: Project[] = [
         links: { github: "https://github.com/", live: "https://example.com" },
     },
     {
-        id: "eatnow",
+        id: "nexus",
         name: "EatNow",
         subtitle: "A food ordering app",
         icon: "/images/safari.png",

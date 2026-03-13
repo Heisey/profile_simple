@@ -1,11 +1,9 @@
 
-import { Search } from 'components/base/Search'
+// import { Search } from 'components/base/Search'
 import * as React from 'react'
 import styled from 'styled-components'
 
 interface SidebarProps {
-    query: string
-    setQuery: (args: string) => void
     goBack: () => void
 }
 
@@ -17,7 +15,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
         <SidebarStyles>
             <div className='header'>
                 <SidebarTitle>Projects</SidebarTitle>
-                <Search {...props} />
+                {/* <Search {...props} /> */}
             </div>
 
             <SidebarList 
@@ -30,39 +28,16 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
                         active: navId === "store",
                         text: "Store"
                     },
-                    {
-                        id: "featured",
-                        active: navId === "featured",
-                        text: "Featured"
-                    },
-                    {
-                        id: "new",
-                        active: navId === "new",
-                        text: "New"
-                    },
-                ]}
-            />
-
-            <SidebarList 
-                title='Collections'
-                setNavId={setNavId}
-                goBack={goBack}
-                listItems={[
-                    {
-                        id: "case-studies",
-                        active: navId === "case-studies",
-                        text: "Case Studies"
-                    },
-                    {
-                        id: "open-source",
-                        active: navId === "open-source",
-                        text: "Open Source"
-                    },
-                    {
-                        id: "experiments",
-                        active: navId === "experiments",
-                        text: "Experiments"
-                    },
+                    // {
+                    //     id: "featured",
+                    //     active: navId === "featured",
+                    //     text: "Featured"
+                    // },
+                    // {
+                    //     id: "new",
+                    //     active: navId === "new",
+                    //     text: "New"
+                    // },
                 ]}
             />
 

@@ -6,40 +6,30 @@ import { PROJECTS } from "config"
 import { ProjectCard } from './ProjectCard'
 
 interface MainContentProps {
-    query: string
     openDetail: (id: string) => void
 }
 
 export const MainContent: React.FC<MainContentProps> = (props) => {
-    const { query, openDetail } = props
-
-    const filtered = React.useMemo(() => {
-        const q = query.trim().toLowerCase()
-        if (!q) return PROJECTS
-        return PROJECTS.filter((p) => {
-            const hay = `${p.name} ${p.subtitle} ${p.overview} ${p.techStack.join(" ")}`
-            return hay.toLowerCase().includes(q)
-        })
-    }, [query])
+    const { openDetail } = props
 
     return (
         <MainContentStyles>
             <div className='header'>
                 <h3 className='title'>Explore</h3>
-                <span className='hint'>{filtered.length} projects</span>
+                <span className='hint'>{PROJECTS.length} projects</span>
             </div>
 
             <div className='content'>
-                <div className='hero'>
+                {/* <div className='hero'>
                     <div className='hero__text'>
                         <span className='hero__text--kicker'>Featured</span>
                         <span className='hero__text--title'>Project Showcase</span>
                         <span className='hero__text--sub'>App Store style browsing. Click a card to open the app page.</span>
                     </div>
-                </div>
+                </div> */}
 
                 <div className='grid'>
-                    {filtered.map((p) => <ProjectCard key={p.id} {...p} openDetail={openDetail} />)}
+                    {PROJECTS.map((p) => <ProjectCard key={p.id} {...p} openDetail={openDetail} />)}
                 </div>
             </div>
         </MainContentStyles>

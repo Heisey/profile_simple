@@ -21,30 +21,30 @@ export const navIcons = [
 
 export const MENUS: Record<string, MenuEntry[]> = {
   Projects: [
-    { type: "item", label: "View All Projects", action: { kind: "window", windowId: "projects" } },
+    { type: "item", label: "View All Projects", action: { kind: "window", windowId: "" } },
     {
       type: "item",
       label: "Featured",
       submenu: [
-        { type: "item", label: "Builder", action: { kind: "window", windowId: "builder" } },
-        { type: "item", label: "Nexus", action: { kind: "window", windowId: "nexus" } },
+        { type: "item", label: "Builder", action: { kind: "window", windowId: "appStore", props: { project: "builder" }  } },
+        { type: "item", label: "Nexus", action: { kind: "window", windowId: "appStore", props: { project: "nexus" } } },
         { type: "separator" },
         { type: "item", label: "Open GitHub", shortcut: "⌘ G", action: { kind: "url", href: "https://github.com/yourname", target: "_blank" } },
       ],
     },
   ],
   Resume: [
+    // {
+    //   type: "item",
+    //   label: "High Fidelity",
+    //   shortcut: "⌘ R",
+    //   action: { kind: "window", windowId: "pdfReader", props: { mode: "view" } },
+    // },
     {
       type: "item",
-      label: "View Resume",
-      shortcut: "⌘ R",
-      action: { kind: "window", windowId: "pdfReader", props: { mode: "view" } },
-    },
-    {
-      type: "item",
-      label: "Download PDF",
+      label: "Simple",
       shortcut: "⇧ ⌘ R",
-      action: { kind: "window", windowId: "pdfReader", props: { mode: "download" } },
+      action: { kind: "window", windowId: "pdfReader", props: { resume: "simple" } },
     },
   ],
 }

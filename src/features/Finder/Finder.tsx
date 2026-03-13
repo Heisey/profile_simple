@@ -1,4 +1,4 @@
-// components/windows/FinderWindow.tsx
+
 import * as React from "react"
 import styled from "styled-components"
 import { WindowWrapper } from "components/hoc/WindowWrapper"
@@ -10,7 +10,6 @@ import { ListTable } from "./ListTable"
 import { Columns } from "./Columns"
 
 const Finder: React.FC = () => {
-  // const finderWindow = useGlobalStore(store => store.featureWindows.finder)
   const [selectedId, setSelectedId] = React.useState<string>("recents")
   const [view, setView] = React.useState<ViewMode>("icons")
 

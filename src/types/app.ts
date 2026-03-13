@@ -5,8 +5,12 @@ export type ResumeDoc = {
   file: string // public URL (ex: "/pdf/resume-frontend.pdf")
 }
 
+export type ProjectIds =
+      "builder"
+    | "nexus"
+
 export type Project = {
-    id: string
+    id: ProjectIds
     name: string
     subtitle: string
     icon: string 

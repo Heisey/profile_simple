@@ -1,3 +1,5 @@
+import type { ProjectIds } from "./app"
+
 export interface FeatureWindowConfg<T = unknown> {
     isOpen: boolean,
     zIndex: number,
@@ -28,4 +30,9 @@ export interface DockApp {
     name: string
     icon: string
     canOpen: boolean
+}
+
+
+export interface AppStoreWindowData {
+    project: ProjectIds
 }

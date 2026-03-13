@@ -9,26 +9,26 @@ import type { View } from './types'
 import { MainContent } from './MainContent'
 
 interface BodyProps {
-    query: string
     view: View
     setView: (args: View) => void
     goBack: () => void
 }
 
 export const Body: React.FC<BodyProps> = (props) => {
-    const { query, view, setView, goBack } = props
+    const {  view, setView, goBack } = props
 
 
     const openDetail = (id: string) => setView({ type: "detail", id })
 
     const active = React.useMemo(() => {
         if (view.type !== "detail") return null
+        
         return PROJECTS.find((p) => p.id === view.id) ?? null
     }, [view])
 
     return (
         <Main>
-            {view.type === "store" && <MainContent openDetail={openDetail} query={query} />}
+            {view.type === "store" && <MainContent openDetail={openDetail} />}
 
             {view.type === "detail" && active && (
                 <Detail
