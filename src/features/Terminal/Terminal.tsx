@@ -8,7 +8,6 @@ import { techStack } from 'config';
 const Terminal: React.FC = () => {
 
   return (
-
     <TechStackStyles>
       <p>
         <span style={{ fontWeight: "bold" }}>@Heisey % load_skills -A</span>
@@ -35,7 +34,7 @@ const Terminal: React.FC = () => {
 
       <FootNoteStyles>
         <p>
-          <Check size={20} /> 5 0f 5 stacks loaded successfully
+          <Check size={20} /> 8 0f 8 stacks loaded successfully
         </p>
 
         <p>
@@ -67,18 +66,17 @@ const LabelStyles = styled.div({
 })
 
 const ContentStyles = styled.ul({
-  paddingTop: "1.25rem",     // py-5
+  paddingTop: "1.25rem",     
   paddingBottom: "1.25rem",
 
-  marginTop: "1.25rem",      // my-5
+  marginTop: "1.25rem",      
   marginBottom: "1.25rem",
 
-  borderTopWidth: "1px",     // border-y
+  borderTopWidth: "1px",     
   borderBottomWidth: "1px",
-  borderTopStyle: "dashed",  // border-dashed
+  borderTopStyle: "dashed",  
   borderBottomStyle: "dashed",
 
-  // space-y-1
   "& > * + *": {
     marginTop: "0.25rem"
   },
@@ -88,15 +86,15 @@ const ContentStyles = styled.ul({
     alignItems: "center",
 
     "& > :first-child": {
-      color: "#00A154",  // text-[#00A154]
-      width: "1.25rem"   // w-5
+      color: "#00A154",  
+      width: "1.25rem"   
     },
 
     "& h3": {
-      fontWeight: 600,          // font-semibold
-      color: "#00A154",         // text-[#00A154]
-      width: "8rem",            // w-32 (32 * 0.25rem)
-      marginInlineStart: "1.25rem" // ms-5 (logical margin start)
+      fontWeight: 600,          
+      color: "#00A154",         
+      width: "8rem",            
+      marginInlineStart: "1.25rem" 
     },
 
     "& ul": {

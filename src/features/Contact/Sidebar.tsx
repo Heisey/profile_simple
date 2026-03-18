@@ -1,9 +1,6 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import {
-    Search,
-} from "lucide-react"
 
 import { CONTACT } from 'config'
 import type { Pane } from './types'
@@ -16,27 +13,22 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = (props) => {
     const { pane, setPane } = props
 
-    const [query, setQuery] = React.useState("")
 
-    const items = React.useMemo(() => {
+    const items = () => {
         const base = [
             { id: "me", label: CONTACT.name, kind: "person" as const },
             { id: "socials", label: "Socials", kind: "folder" as const },
         ]
 
-        const q = query.trim().toLowerCase()
-
-        if (!q) return base
-
-        return base.filter((x) => x.label.toLowerCase().includes(q))
-    }, [query])
+        return base
+    }
 
     return (
         <SidebarStyles>
             <SidebarHeader>
                 <SidebarTitle>Contacts</SidebarTitle>
 
-                <SearchWrap>
+                {/* <SearchWrap>
                     <Search size={14} />
                     <SearchInput
                         value={query}
@@ -44,12 +36,12 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
                         placeholder="Search"
                         aria-label="Search contacts"
                     />
-                </SearchWrap>
+                </SearchWrap> */}
             </SidebarHeader>
 
             <SidebarSectionLabel>Cards</SidebarSectionLabel>
             <SidebarList>
-                {items.some((x) => x.id === "me") && (
+                {items().some((x) => x.id === "me") && (
                     <SideRow
                         type="button"
                         $active={pane === "card"}
@@ -66,7 +58,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
 
             <SidebarSectionLabel>Quick Links</SidebarSectionLabel>
             <SidebarList>
-                {items.some((x) => x.id === "socials") && (
+                {items().some((x) => x.id === "socials") && (
                     <SideRow
                         type="button"
                         $active={pane === "socials"}
@@ -101,26 +93,6 @@ const SidebarHeader = styled.div({
 const SidebarTitle = styled.div({
     fontWeight: 900,
     fontSize: "0.95rem",
-    color: "#111827",
-})
-
-const SearchWrap = styled.div({
-    display: "flex",
-    alignItems: "center",
-    gap: "0.45rem",
-    padding: "0.45rem 0.55rem",
-    borderRadius: "0.75rem",
-    border: "1px solid rgba(0,0,0,0.10)",
-    background: "rgba(255,255,255,0.75)",
-    color: "#6b7280",
-})
-
-const SearchInput = styled.input({
-    border: 0,
-    outline: "none",
-    background: "transparent",
-    width: "100%",
-    fontSize: "0.9rem",
     color: "#111827",
 })
 

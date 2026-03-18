@@ -7,7 +7,8 @@ export type ResumeDoc = {
 
 export type ProjectIds =
       "builder"
-    | "nexus"
+    | "storyTemplate"
+    | "eatnow"
 
 export type Project = {
     id: ProjectIds

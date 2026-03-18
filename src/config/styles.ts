@@ -2,7 +2,7 @@ import type { FeatureWindowKey } from "types";
 
 export const WINDOW_LAYOUT: Record<FeatureWindowKey, React.CSSProperties> = {
   terminal: {
-    width: "36rem",          // w-xl
+    width: "40rem",          // w-xl
     top: "8rem",             // top-32
     left: "8.333333%",       // left-1/12
     backgroundColor: "#fff", // bg-white
@@ -80,7 +80,10 @@ export const WINDOW_LAYOUT: Record<FeatureWindowKey, React.CSSProperties> = {
   resume: {},
   photos: {},
   txtfile: {},
-  imgfile: {}
+  imgfile: {},
+  books: {},
+  files: {},
+  notes: {}
 }
 
 export const fontWeight = {

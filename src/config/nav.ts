@@ -21,15 +21,15 @@ export const navIcons = [
 
 export const MENUS: Record<string, MenuEntry[]> = {
   Projects: [
-    { type: "item", label: "View All Projects", action: { kind: "window", windowId: "" } },
+    { type: "item", label: "View All Projects", action: { kind: "window", windowId: "appStore" } },
     {
       type: "item",
       label: "Featured",
       submenu: [
         { type: "item", label: "Builder", action: { kind: "window", windowId: "appStore", props: { project: "builder" }  } },
-        { type: "item", label: "Nexus", action: { kind: "window", windowId: "appStore", props: { project: "nexus" } } },
+        { type: "item", label: "Story Builder", action: { kind: "window", windowId: "appStore", props: { project: "storyTemplate" } } },
         { type: "separator" },
-        { type: "item", label: "Open GitHub", shortcut: "⌘ G", action: { kind: "url", href: "https://github.com/yourname", target: "_blank" } },
+        { type: "item", label: "Open GitHub", shortcut: "⌘ G", action: { kind: "url", href: "https://github.com/Heisey?tab=repositories", target: "_blank" } },
       ],
     },
   ],

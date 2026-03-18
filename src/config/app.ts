@@ -22,78 +22,78 @@ export const iosGridApps: DockApp[] = [
 ]
 
 export const iosDockApps: DockApp[] = [
-    {
-        id: "contact",
-        name: "Contacts",
-        icon: "/apple/Contacts.png",
-        canOpen: true
-    },
-    {
-        id: "safari",
-        name: "Articles",
-        icon: "/apple/Safari.png",
-        canOpen: true
-    },
-    {
-        id: "appStore",
-        name: "App Store",
-        icon: "/apple/AppStore.png",
-        canOpen: true
-    },
-    {
-        id: "settings",
-        name: "Settings",
-        icon: "/apple/SystemPreferences.png",
-        canOpen: true
-    },
+  {
+    id: "contact",
+    name: "Contacts",
+    icon: "/apple/Contacts.png",
+    canOpen: true
+  },
+  {
+    id: "safari",
+    name: "Articles",
+    icon: "/apple/Safari.png",
+    canOpen: true
+  },
+  {
+    id: "appStore",
+    name: "App Store",
+    icon: "/apple/AppStore.png",
+    canOpen: true
+  },
+  {
+    id: "settings",
+    name: "Settings",
+    icon: "/apple/SystemPreferences.png",
+    canOpen: true
+  },
 ]
 
 export const macOsDockApps: DockApp[] = [
-    // {
-    //     id: "finder",
-    //     name: "Finder",
-    //     icon: "/apple/Finder.png",
-    //     canOpen: true,
-    // },
-    {
-        id: "safari",
-        name: "Articles", // was "Safari"
-        icon: "/apple/Safari.png",
-        canOpen: true,
-    },
-    {
-        id: "appStore",
-        name: "App Store", // was "Photos"
-        icon: "/apple/AppStore.png",
-        canOpen: true,
-    },
-    {
-        id: "contact",
-        name: "Contact", // or "Get in touch"
-        icon: "/apple/Contacts.png",
-        canOpen: true,
-    },
-    {
-        id: "terminal",
-        name: "Skills", // was "Terminal"
-        icon: "/apple/Terminal.png",
-        canOpen: true,
-    },
-    {
-        id: "settings",
-        name: "Settings", // was "Terminal"
-        icon: "/apple/SystemPreferences.png",
-        canOpen: true,
-    }
+  // {
+  //     id: "finder",
+  //     name: "Finder",
+  //     icon: "/apple/Finder.png",
+  //     canOpen: true,
+  // },
+  {
+    id: "safari",
+    name: "Articles", // was "Safari"
+    icon: "/apple/Safari.png",
+    canOpen: true,
+  },
+  {
+    id: "appStore",
+    name: "App Store", // was "Photos"
+    icon: "/apple/AppStore.png",
+    canOpen: true,
+  },
+  {
+    id: "contact",
+    name: "Contact", // or "Get in touch"
+    icon: "/apple/Contacts.png",
+    canOpen: true,
+  },
+  {
+    id: "terminal",
+    name: "Skills", // was "Terminal"
+    icon: "/apple/Terminal.png",
+    canOpen: true,
+  },
+  {
+    id: "settings",
+    name: "Settings", // was "Terminal"
+    icon: "/apple/SystemPreferences.png",
+    canOpen: true,
+  }
 ]
 
 export const tempDockApps = {
-    pdfReader: {
-        id: "pdfReader",
-        name: "Resume",
-        icon: "/apple/Preview.png",
-        canOpen: true
-    }
+  pdfReader: {
+    id: "pdfReader",
+    name: "Resume",
+    icon: "/apple/Preview.png",
+    canOpen: true
+  }
 }
 
 export const resumes: ResumeDoc[] = [
@@ -101,28 +101,28 @@ export const resumes: ResumeDoc[] = [
 ]
 
 export const blogPosts = [
-    {
-        id: 1,
-        date: "Sep 2, 2025",
-        title:
-            "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-        image: "/images/blog1.png",
-        link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
-    },
-    {
-        id: 2,
-        date: "Aug 28, 2025",
-        title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-        image: "/images/blog2.png",
-        link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
-    },
-    {
-        id: 3,
-        date: "Aug 15, 2025",
-        title: "The Ultimate Guide to Mastering GSAP Animations",
-        image: "/images/blog3.png",
-        link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
-    },
+  {
+    id: 1,
+    date: "Sep 2, 2025",
+    title:
+      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+    image: "/images/blog1.png",
+    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+  },
+  {
+    id: 2,
+    date: "Aug 28, 2025",
+    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
+    image: "/images/blog2.png",
+    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+  },
+  {
+    id: 3,
+    date: "Aug 15, 2025",
+    title: "The Ultimate Guide to Mastering GSAP Animations",
+    image: "/images/blog3.png",
+    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+  },
 ];
 
 export type TechStackGroup = {
@@ -137,36 +137,48 @@ export type TechStackGroup = {
 export const techStack: TechStackGroup[] = [
   {
     id: 1,
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
+    category: "Languages",
+    items: ["Typescript", "C++", "Python"],
     lastUpdated: new Date()
   },
   {
     id: 2,
-    category: "Mobile",
-    items: ["React Native", "Expo"],
+    category: "Frontend",
+    items: ["React", "Next", "TypeScript"],
     lastUpdated: new Date()
   },
   {
     id: 3,
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    category: "Mobile",
+    items: ["React Native"],
     lastUpdated: new Date()
   },
   {
     id: 4,
-    category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    category: "Styling",
+    items: ["MUI", "Styled Components", "Tailwind CSS", "Sass", "CSS"],
     lastUpdated: new Date()
   },
   {
     id: 5,
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    category: "Backend",
+    items: ["Express", "NestJS", "Flask"],
     lastUpdated: new Date()
   },
   {
     id: 6,
+    category: "Database",
+    items: ["MongoDB", "PostgreSQL", "MySql"],
+    lastUpdated: new Date()
+  },
+  {
+    id: 7,
+    category: "Infrastructure",
+    items: ["Docker", "RabbitMQ", "Kafka", "Nginx"],
+    lastUpdated: new Date()
+  },
+  {
+    id: 7,
     category: "Dev Tools",
     items: ["Git", "GitHub", "Docker"],
     lastUpdated: new Date()
@@ -193,64 +205,154 @@ export const mockFolders = [
 ]
 
 export const PROJECTS: Project[] = [
-    {
-        id: "builder",
-        name: "Visual Builder",
-        subtitle: "Drag-and-drop pages with SSR routing",
-        icon: "/images/finder.png",
-        difficulty: 5,
-        cover: "/images/hero-placeholder.jpg",
-        screenshots: ["/images/hero-placeholder.jpg", "/images/hero-placeholder.jpg"],
-        overview:
-            "A macOS-style visual builder that stores page documents, renders server-side for SEO, and supports structured components with constraints.",
-        highlights: [
-            "SSR-friendly page generation with publish/draft flows",
-            "Component catalog + inspector editing model",
-            "Designed for plugin-style extensions",
-        ],
-        whatIDid: [
-            "Architected the monorepo + routing patterns",
-            "Built the document schema and rendering pipeline",
-            "Implemented UI patterns for selection + inspector editing",
-        ],
-        techStack: ["TypeScript", "React", "Vite", "Nx", "Node.js", "Express", "MySQL"],
-        links: { github: "https://github.com/", live: "https://example.com" },
-    },
-    {
-        id: "nexus",
-        name: "EatNow",
-        subtitle: "A food ordering app",
-        icon: "/images/safari.png",
-        difficulty: 2,
-        cover: "/images/hero-placeholder.jpg",
-        screenshots: ["/images/hero-placeholder.jpg"],
-        overview:
-            "enter content",
-        highlights: [
-          "enter content",
-          "enter content"
-        ],
-        whatIDid: [
-          "enter content",
-          "enter content"
-        ],
-        techStack: ["TypeScript", "React", "Vite", "Styled Components"],
-        links: { github: "https://github.com/Heisey/eatnow" },
-    },
+  {
+    id: "builder",
+    name: "Visual Builder",
+    subtitle: "SSR-first drag-and-drop page builder with file-based rendering and microservice architecture",
+    icon: "/images/finder.png",
+    difficulty: 5,
+    cover: "/apple/ComingSoon.png",
+    screenshots: [],
+
+    overview:
+      "A full-stack visual page builder designed around server-side rendering, file-based routing, and a scalable microservice architecture. Pages are constructed using structured components, persisted as documents, and compiled into real files for SSR delivery and SEO performance.",
+
+    highlights: [
+      "File-based page generation instead of database-only rendering",
+      "SSR-first architecture with no per-request rebuilds",
+      "Component-driven editor with selection + inspector pattern",
+      "Publish/draft workflow with document versioning in mind",
+      "Monorepo architecture with isolated services and shared contracts",
+      "Designed for plugin-style extensibility"
+    ],
+
+    whatIDid: [
+      "Architected a full Nx monorepo with multiple services and shared libraries",
+      "Designed a document-based page schema and rendering pipeline",
+      "Implemented file generation strategy for SSR-compatible pages",
+      "Built a visual editor with component selection and inspector editing",
+      "Created routing patterns aligned with file-based page output",
+      "Defined boundaries between presentation components and server logic",
+      "Set up a scalable Node/Express service layer for builder operations"
+    ],
+
+    techStack: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Nx",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Docker"
+    ],
+
+    links: {
+      github: "https://github.com/",
+      live: "https://example.com"
+    }
+  },
+  {
+    id: "storyTemplate",
+    name: "AI Story Builder",
+    subtitle: "AI-generated 3D avatars with interactive storytelling in a browser-based world",
+    icon: "/images/finder.png",
+    difficulty: 5,
+    
+    cover: "/apple/ComingSoon.png",
+    screenshots: [],
+
+    overview:
+      "An experimental platform that generates 3D avatars from user-uploaded photos and places them into interactive environments for storytelling. Built using Blender for model generation, a Python/Flask backend for processing, and a React + Three.js frontend for real-time rendering and interaction.",
+
+    highlights: [
+      "Photo-to-3D avatar generation pipeline using Blender and Python",
+      "Interactive 3D environments rendered in the browser with Three.js",
+      "Designed for kid-friendly storytelling and creative exploration",
+      "Containerized architecture using Docker for reproducible processing",
+      "Separation of ML processing, rendering, and frontend interaction layers",
+      "Early exploration of AI-assisted content creation workflows"
+    ],
+
+    whatIDid: [
+      "Designed the end-to-end pipeline from image upload to 3D model generation",
+      "Integrated Blender scripting with Python to automate avatar creation",
+      "Built a Flask-based backend for processing and managing generation jobs",
+      "Developed a React + Three.js frontend for rendering and interacting with 3D scenes",
+      "Containerized the system using Docker to manage Blender and ML dependencies",
+      "Explored UX patterns for making 3D storytelling accessible to non-technical users (kids)"
+    ],
+
+    techStack: [
+      "Python",
+      "Flask",
+      "Blender",
+      "Docker",
+      "React",
+      "Three.js",
+      "TypeScript"
+    ],
+
+    links: {
+      github: "https://github.com/Heisey/story-template",
+      live: "https://example.com"
+    }
+  },
+  {
+    id: "eatnow",
+    name: "EatNow",
+    subtitle: "Full-stack food ordering platform built with the MERN stack",
+    icon: "/images/finder.png",
+    difficulty: 4,
+    cover: "/apple/ComingSoon.png",
+    screenshots: [],
+
+    overview:
+      "A full-stack food ordering application that allows users to browse menus, place orders, and manage their cart in real time. Built with the MERN stack, the project focuses on clean state management, API design, and a scalable foundation for e-commerce-style workflows.",
+
+    highlights: [
+      "End-to-end ordering flow from browsing to checkout",
+      "RESTful API design with Node.js and Express",
+      "Dynamic menu rendering and cart management with React",
+      "MongoDB schema design for products, orders, and users",
+      "Separation of frontend, backend, and data layers",
+      "Foundation for real-time or multi-vendor expansion"
+    ],
+
+    whatIDid: [
+      "Built a full-stack MERN application with React frontend and Express backend",
+      "Designed MongoDB schemas for users, menu items, and orders",
+      "Implemented cart logic and order flow from UI to backend processing",
+      "Created REST APIs for product retrieval, user actions, and order handling",
+      "Managed application state and UI updates for a responsive user experience",
+      "Structured the project for scalability and future feature expansion"
+    ],
+
+    techStack: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "JavaScript",
+      "REST API"
+    ],
+
+    links: {
+      github: "https://github.com/Heisey/eatnow",
+      live: "https://example.com"
+    }
+  }
 ]
 
 
 export const CONTACT = {
   name: "Justin Heisey",
-  subtitle: "Software Engineer • Builder / Platform",
+  subtitle: "Software Engineer",
   location: "Canada",
-  email: "you@example.com",
+  email: "jheisler01@gmail.com",
   note: "Fastest way to reach me: email.",
   socials: [
-    { label: "LinkedIn", url: "https://linkedin.com/in/", icon: "linkedin" },
-    { label: "GitHub", url: "https://github.com/", icon: "github" },
-    { label: "Website", url: "https://example.com", icon: "website" },
-    { label: "YouTube", url: "https://youtube.com", icon: "youtube" },
-    { label: "X", url: "https://x.com", icon: "x" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/justin-heisler-35069a87/", icon: "linkedin" },
+    { label: "GitHub", url: "https://github.com/Heisey", icon: "github" }
   ] as Social[],
 }
