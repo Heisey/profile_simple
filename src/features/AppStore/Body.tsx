@@ -15,20 +15,24 @@ interface BodyProps {
 }
 
 export const Body: React.FC<BodyProps> = (props) => {
-    const {  view, setView, goBack } = props
+    const { view, setView, goBack } = props
 
 
     const openDetail = (id: string) => setView({ type: "detail", id })
 
     const active = React.useMemo(() => {
         if (view.type !== "detail") return null
-        
+
         return PROJECTS.find((p) => p.id === view.id) ?? null
     }, [view])
 
     return (
         <Main>
-            {view.type === "store" && <MainContent openDetail={openDetail} />}
+            {view.type === "store" && (
+                <ScrollArea>
+                    <MainContent openDetail={openDetail} />
+                </ScrollArea>
+            )}
 
             {view.type === "detail" && active && (
                 <Detail
@@ -45,7 +49,15 @@ export const Body: React.FC<BodyProps> = (props) => {
 const Main = styled.main({
     display: "flex",
     flexDirection: "column",
+    flex: 1,
+    minHeight: 0,
     overflow: "hidden",
-    background: "#fff",
 })
 
+const ScrollArea = styled.div({
+    flex: 1,
+    minHeight: 0,
+    overflowY: "auto",
+    overflowX: "hidden",
+    WebkitOverflowScrolling: "touch",
+})

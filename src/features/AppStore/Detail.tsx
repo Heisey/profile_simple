@@ -156,12 +156,35 @@ const ActionBtn = styled.a({
     textDecoration: "none",
 })
 
+const CardBase = {
+    borderRadius: "1.1rem",
+    border: "1px solid rgba(0,0,0,0.08)",
+    background: "#fff",
+    boxShadow: "0 14px 30px rgba(0,0,0,0.08)",
+}
+const PillBase = {
+    borderRadius: "999px",
+    border: "1px solid rgba(0,0,0,0.10)",
+    background: "rgba(0,0,0,0.04)",
+    color: "#111827",
+}
 
 const DetailShell = styled.div({
     height: "100%",
+    minHeight: 0,
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
+})
+
+const DetailBody = styled.div({
+    flex: 1,
+    minHeight: 0,
+    overflowY: "auto",
+    overflowX: "hidden",
+    padding: "1rem",
+    paddingBottom: "1.5rem",
+    WebkitOverflowScrolling: "touch",
 })
 
 const DetailTopbar = styled.div({
@@ -201,12 +224,6 @@ const PrimaryBtn = styled(ActionBtn)({
     background: "#2563eb",
     border: "1px solid rgba(37,99,235,0.35)",
     color: "#fff",
-})
-
-const DetailBody = styled.div({
-    flex: 1,
-    overflow: "auto",
-    padding: "1rem",
 })
 
 const HeroRow = styled.div({
@@ -250,14 +267,11 @@ const HeroMetaRow = styled.div({
 })
 
 const MetaPill = styled.div({
+    ...PillBase,
     display: "inline-flex",
     alignItems: "center",
     gap: "0.45rem",
     padding: "0.35rem 0.6rem",
-    borderRadius: "999px",
-    border: "1px solid rgba(0,0,0,0.10)",
-    background: "rgba(0,0,0,0.03)",
-    color: "#111827",
     fontSize: "0.85rem",
 })
 
@@ -272,9 +286,8 @@ const MetaLink = styled.a({
 })
 
 const SliderCard = styled.div({
+    ...CardBase,
     borderRadius: "1.2rem",
-    border: "1px solid rgba(0,0,0,0.08)",
-    background: "#fff",
     boxShadow: "0 16px 36px rgba(0,0,0,0.08)",
     padding: "0.9rem",
     marginBottom: "1rem",
@@ -378,10 +391,7 @@ const TwoCol = styled.div({
 })
 
 const SectionCard = styled.div({
-    borderRadius: "1.1rem",
-    border: "1px solid rgba(0,0,0,0.08)",
-    background: "#fff",
-    boxShadow: "0 14px 30px rgba(0,0,0,0.08)",
+    ...CardBase,
     padding: "0.95rem",
 })
 
@@ -413,10 +423,7 @@ const Chips = styled.div({
 })
 
 const Chip = styled.div({
-    borderRadius: "999px",
-    border: "1px solid rgba(0,0,0,0.10)",
-    background: "rgba(0,0,0,0.04)",
+    ...PillBase,
     padding: "0.28rem 0.55rem",
     fontSize: "0.85rem",
-    color: "#111827",
 })

@@ -206,6 +206,53 @@ export const mockFolders = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "builder2",
+    name: "Visual Builder",
+    subtitle: "SSR-first drag-and-drop page builder with file-based rendering and microservice architecture",
+    icon: "/images/finder.png",
+    difficulty: 5,
+    cover: "/apple/ComingSoon.png",
+    screenshots: [],
+
+    overview:
+      "A full-stack visual page builder designed around server-side rendering, file-based routing, and a scalable microservice architecture. Pages are constructed using structured components, persisted as documents, and compiled into real files for SSR delivery and SEO performance.",
+
+    highlights: [
+      "File-based page generation instead of database-only rendering",
+      "SSR-first architecture with no per-request rebuilds",
+      "Component-driven editor with selection + inspector pattern",
+      "Publish/draft workflow with document versioning in mind",
+      "Monorepo architecture with isolated services and shared contracts",
+      "Designed for plugin-style extensibility"
+    ],
+
+    whatIDid: [
+      "Architected a full Nx monorepo with multiple services and shared libraries",
+      "Designed a document-based page schema and rendering pipeline",
+      "Implemented file generation strategy for SSR-compatible pages",
+      "Built a visual editor with component selection and inspector editing",
+      "Created routing patterns aligned with file-based page output",
+      "Defined boundaries between presentation components and server logic",
+      "Set up a scalable Node/Express service layer for builder operations"
+    ],
+
+    techStack: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Nx",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Docker"
+    ],
+
+    links: {
+      github: "https://github.com/",
+      live: "https://example.com"
+    }
+  },
+  {
     id: "builder",
     name: "Visual Builder",
     subtitle: "SSR-first drag-and-drop page builder with file-based rendering and microservice architecture",

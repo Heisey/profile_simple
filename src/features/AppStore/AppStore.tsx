@@ -41,6 +41,8 @@ export const AppStoreIosWindow = IOSWindowWrapper(AppStore, "appStore")
 
 const AppStoreStyles = styled.div({
     display: "grid",
-    gridTemplateColumns: "17rem 1fr",
-    height: "48rem"
+    gridTemplateColumns: "17rem minmax(0, 1fr)",
+    height: "100%",
+    minHeight: 0,
+    overflow: "hidden",
 })

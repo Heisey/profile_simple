@@ -13,12 +13,8 @@ import { SettingsMacOsWindow } from "features/Settings"
 import { NavBar } from "./layout/NavBar"
 import { Hero } from "./layout/Hero"
 import { Dock } from "./layout/Dock"
-import { useGlobalStore } from 'store'
 
 export const MacOS: React.FC = () => {
-    const openApp = useGlobalStore(store => store.openWindow)
-
-    openApp("pdfReader", {})
     
     return (
         <Main>
