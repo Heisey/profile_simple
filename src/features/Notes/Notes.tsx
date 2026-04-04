@@ -25,7 +25,6 @@ const NotesAppStyles = styled.div({
     width: "100%",
     height: "100%",
     minHeight: 0,
-    background: "#fff",
     color: "#111827",
     display: "grid",
     gridTemplateRows: "auto 1fr",

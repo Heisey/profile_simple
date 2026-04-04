@@ -24,11 +24,16 @@ const AppStore: React.FC = () => {
     }, [appStoreWindow.data?.project, setView])
 
     return (
-        <AppStoreStyles>
+    <AppStoreStyles>
+        <SidebarWrap>
             <Sidebar goBack={goBack} />
+        </SidebarWrap>
+
+        <BodyWrap>
             <Body view={view} setView={setView} goBack={goBack} />
-        </AppStoreStyles>
-    )
+        </BodyWrap>
+    </AppStoreStyles>
+)
 }
 
 export const AppStoreMacOsWindow = WindowWrapper(
@@ -45,4 +50,25 @@ const AppStoreStyles = styled.div({
     height: "100%",
     minHeight: 0,
     overflow: "hidden",
+
+    "@media (max-width: 768px)": {
+        gridTemplateColumns: "1fr",
+    },
+})
+
+const SidebarWrap = styled.div({
+    minWidth: 0,
+    minHeight: 0,
+    overflow: "hidden",
+
+    "@media (max-width: 768px)": {
+        display: "none",
+    },
+})
+
+const BodyWrap = styled.div({
+    minWidth: 0,
+    minHeight: 0,
+    overflow: "hidden",
+    display: "flex",
 })
