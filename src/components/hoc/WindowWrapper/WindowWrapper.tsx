@@ -1,12 +1,12 @@
 import { useGSAP } from "@gsap/react"
 import * as React from "react"
 
-import { WindowControls } from 'components/custom/WindowControls';
+import { WindowControls } from "components/custom/WindowControls"
 import { useGlobalStore } from "store"
 import type { FeatureWindowKey } from "types"
 import { Draggable, gsap } from "utils"
-import styled from "styled-components";
-import { WINDOW_LAYOUT } from "config";
+import styled from "styled-components"
+import { WINDOW_LAYOUT } from "config"
 
 type NamedComponent = { displayName?: string; name?: string }
 
@@ -24,7 +24,7 @@ export function WindowWrapper<P extends object>(
 
   const Wrapped: React.FC<Props> = (componentProps) => {
     const win = useGlobalStore((s) => s.featureWindows[windowKey])
-    const focusWindow = useGlobalStore(s => s.focusWindow)
+    const focusWindow = useGlobalStore((s) => s.focusWindow)
     const sectionRef = React.useRef<HTMLElement | null>(null)
     const headerRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -33,7 +33,7 @@ export function WindowWrapper<P extends object>(
 
       if (!el || !win.isOpen) return
 
-      el.style.display = "block"
+      el.style.display = "flex"
 
       gsap.fromTo(
         el,
@@ -58,37 +58,34 @@ export function WindowWrapper<P extends object>(
       }
     }, { dependencies: [win.isOpen] })
 
-
     React.useLayoutEffect(() => {
       const el = sectionRef.current
       if (!el) return
-      el.style.display = win.isOpen ? "block" : "none"
+      el.style.display = win.isOpen ? "flex" : "none"
     }, [win.isOpen])
 
     const renderHeader = () => {
-      if (!headerText) return
-
+      if (!headerText) return null
       if (typeof headerText === "string") return <h2>{headerText}</h2>
-
       return headerText
     }
 
     return (
-      <section
+      <WindowShell
         ref={sectionRef}
         id={windowKey}
-        style={{
-          position: "absolute",
-          zIndex: win.zIndex,
-          ...(WINDOW_LAYOUT[windowKey] ?? {}),
-        }}
+        $zIndex={win.zIndex}
+        style={WINDOW_LAYOUT[windowKey] ?? {}}
       >
         <HeaderStyles ref={headerRef}>
           <WindowControls windowKey={windowKey} />
           {renderHeader()}
         </HeaderStyles>
-        <Component {...componentProps} />
-      </section>
+
+        <WindowBody>
+          <Component {...componentProps} />
+        </WindowBody>
+      </WindowShell>
     )
   }
 
@@ -97,9 +94,45 @@ export function WindowWrapper<P extends object>(
   return Wrapped
 }
 
+const WindowShell = styled.section<{ $zIndex: number }>(({ $zIndex }) => ({
+  position: "absolute",
+  zIndex: $zIndex,
+  display: "flex",
+  flexDirection: "column",
+  overflow: "hidden",
+  minHeight: 0,
+  minWidth: 0,
+
+  maxWidth: "calc(100dvw - 1rem)",
+  maxHeight: "calc(100dvh - 1rem)",
+
+  borderRadius: "0.5rem",
+  background: "#fff",
+  boxShadow: "0 18px 40px rgba(0,0,0,0.18)",
+}))
+
+const WindowBody = styled.div({
+  flex: 1,
+  minHeight: 0,
+  minWidth: 0,
+  overflowY: "auto",
+  overflowX: "hidden",
+  WebkitOverflowScrolling: "touch",
+  display: "flex",
+  flexDirection: "column",
+
+  scrollbarWidth: "none",      // Firefox
+  msOverflowStyle: "none",     // old Edge/IE
+
+  "&::-webkit-scrollbar": {
+    display: "none",           // Chrome, Safari
+  },
+})
+
 const HeaderStyles = styled.div({
   display: "flex",
   alignItems: "center",
+  flexShrink: 0,
 
   padding: "0.75rem 1rem",
 
@@ -122,6 +155,6 @@ const HeaderStyles = styled.div({
     fontSize: "0.875rem",
     textAlign: "center",
     flex: 1,
-    margin: "0 auto"
+    margin: "0 auto",
   },
 })

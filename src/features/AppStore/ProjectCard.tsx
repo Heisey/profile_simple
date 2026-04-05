@@ -10,7 +10,7 @@ interface ProjectCardProps extends Project {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
-    const { openDetail, icon, id, name, subtitle, difficulty } = props
+    const { openDetail, icon, cover, id, name, subtitle, difficulty } = props
 
     return (
         <ProjectCardStyles onClick={() => openDetail(id)}>
@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
             </div>
 
             <div className='picture'>
-                <img className='picture__image' src="/apple/ComingSoon.png" alt="" loading="lazy" />
+                <img className='picture__image' src={cover} alt="" loading="lazy" />
                 <div className='picture__gloss' aria-hidden="true" />
             </div>
         </ProjectCardStyles>

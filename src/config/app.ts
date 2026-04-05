@@ -2,12 +2,6 @@ import type { DockApp, Project, ResumeDoc, Social } from "types";
 
 export const iosGridApps: DockApp[] = [
   {
-    id: "files",
-    name: "Projects",
-    icon: "/apple/FolderIcon.png",
-    canOpen: true
-  },
-  {
     id: "books",
     name: "Resume",
     icon: "/apple/Books.png",
@@ -103,26 +97,12 @@ export const resumes: ResumeDoc[] = [
 export const blogPosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
+    date: "April 5, 2026",
     title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
-  },
-  {
-    id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
-  },
-  {
-    id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
-  },
+      "React State Seperation: How to stop you app from turning into a dumpster fire",
+    image: "/articles/react-state-separation.png",
+    link: "https://medium.com/@jheisler01/react-state-separation-adf7e1289cea",
+  }
 ];
 
 export type TechStackGroup = {
@@ -209,9 +189,9 @@ export const PROJECTS: Project[] = [
     id: "builder",
     name: "Visual Builder",
     subtitle: "SSR-first drag-and-drop page builder with file-based rendering and microservice architecture",
-    icon: "/images/finder.png",
+    icon: "/apps/visual-builder/icon.png",
     difficulty: 5,
-    cover: "/apple/ComingSoon.png",
+    cover: "/apps/visual-builder/cover.png",
     screenshots: [],
 
     overview:
@@ -256,10 +236,10 @@ export const PROJECTS: Project[] = [
     id: "storyTemplate",
     name: "AI Story Builder",
     subtitle: "AI-generated 3D avatars with interactive storytelling in a browser-based world",
-    icon: "/images/finder.png",
+    icon: "/apps/story-template/icon.png",
     difficulty: 5,
     
-    cover: "/apple/ComingSoon.png",
+    cover: "/apps/story-template/cover.png",
     screenshots: [],
 
     overview:
@@ -302,9 +282,9 @@ export const PROJECTS: Project[] = [
     id: "eatnow",
     name: "EatNow",
     subtitle: "Full-stack food ordering platform built with the MERN stack",
-    icon: "/images/finder.png",
+    icon: "/apps/eat-now/icon.png",
     difficulty: 4,
-    cover: "/apple/ComingSoon.png",
+    cover: "/apps/eat-now/cover.png",
     screenshots: [],
 
     overview:

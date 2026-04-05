@@ -71,18 +71,34 @@ const SafariHeader: React.FC = () => {
 export const SafariMacOsWindow = WindowWrapper(Safari, "safari", <SafariHeader />)
 export const SafariIosWindow = IOSWindowWrapper(Safari, "safari")
 
-
 const SafariStyles = styled.div({
-    maxWidth: "48rem",            // max-w-3xl
-    marginLeft: "auto",           // mx-auto
+    height: "100%",
+    minHeight: 0,
+    maxHeight: "100%",
+    overflowY: "auto",
+    overflowX: "hidden",
+    WebkitOverflowScrolling: "touch",
+
+    scrollbarWidth: "none",     // Firefox
+    msOverflowStyle: "none",    // old Edge/IE
+
+    "&::-webkit-scrollbar": {
+        display: "none",        // Chrome, Safari
+    },
+
+    padding: "1.25rem 1rem 1.5rem",
+    boxSizing: "border-box",
+
+    maxWidth: "48rem",
+    width: "100%",
+    marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "2rem",
 
     "& h2": {
-        fontSize: "1.25rem",     // text-xl
-        fontWeight: 700,         // font-bold
-        color: "#db2777",        // text-pink-600
-        marginBottom: "2.5rem",  // mb-10
+        fontSize: "1.25rem",
+        fontWeight: 700,
+        color: "#db2777",
+        marginBottom: "2rem",
     },
 
     "& .blog": {
@@ -91,12 +107,11 @@ const SafariStyles = styled.div({
         },
 
         "& .post": {
-            display: "grid",                 // grid
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))", // grid-cols-12
+            display: "grid",
+            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
 
-            // space-x-5 → horizontal spacing between children
             "& > * + *": {
-                marginLeft: "1.25rem"          // space-x-5
+                marginLeft: "1.25rem"
             },
 
             "& .image_container": {
@@ -105,52 +120,47 @@ const SafariStyles = styled.div({
                 "& img": {
                     width: "100%",
                     height: "100%",
-                    borderRadius: "0.375rem", // rounded-md
+                    borderRadius: "0.375rem",
                     objectFit: "cover"
-
                 }
             },
 
             "& .content_container": {
-                gridColumn: "span 10 / span 10", // col-span-10
+                gridColumn: "span 10 / span 10",
+                minWidth: 0,
 
-                // space-y-3
                 "& > * + *": {
                     marginTop: "0.75rem"
                 },
 
                 "& p": {
-                    fontSize: "0.75rem",        // text-xs
+                    fontSize: "0.75rem",
                     lineHeight: "1rem",
-                    color: "#6b7280",           // text-gray-500
+                    color: "#6b7280",
                 },
 
                 "& h3": {
-                    fontWeight: 600,            // font-semibold
-                    fontSize: "1rem",           // text-base
+                    fontWeight: 600,
+                    fontSize: "1rem",
                     lineHeight: "1.5rem",
-                    color: "#1f2937",           // text-gray-800
+                    color: "#1f2937",
                 },
 
                 "& a": {
-                    color: "#2563eb",           // text-blue-600
-                    fontSize: "0.75rem",        // text-xs
+                    color: "#2563eb",
+                    fontSize: "0.75rem",
                     lineHeight: "1rem",
-
-                    display: "flex",            // flex
-                    alignItems: "center",       // items-center
-                    gap: "0.75rem",             // gap-3
-
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
                     textDecoration: "none",
 
                     "&:hover": {
-                        textDecoration: "underline", // hover:underline
+                        textDecoration: "underline",
                     }
                 }
             }
-
         }
-
     }
 })
 

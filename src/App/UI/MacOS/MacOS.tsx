@@ -35,11 +35,13 @@ export const MacOS: React.FC = () => {
 }
 
 const Main = styled.main({
+  position: "relative",
   width: "100dvw",
-  overflow: "hidden",
   height: "100dvh",
+  overflow: "hidden",
+  isolation: "isolate",
   backgroundImage: 'url("/images/wallpaper.png")',
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  backgroundPosition: "center"
+  backgroundPosition: "center",
 })
