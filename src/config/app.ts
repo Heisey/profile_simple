@@ -91,7 +91,7 @@ export const tempDockApps = {
 }
 
 export const resumes: ResumeDoc[] = [
-  { id: "simple", title: "Simple", file: "/files/resume.pdf" },
+  { id: "simple", title: "Simple", file: "/files/simple.pdf" },
 ]
 
 export const blogPosts = [
