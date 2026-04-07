@@ -22,7 +22,7 @@ export const Hero: React.FC = () => {
     return (
         <HeroStyles>
             <p ref={subTitleRef}>{renderText({
-                text: "Welcome to my", 
+                text: "Welcome to Heisey's", 
                 styles: {
                     fontSize: "1.875rem",
                     lineHeight: "2.25rem",

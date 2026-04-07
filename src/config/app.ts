@@ -326,7 +326,7 @@ export const PROJECTS: Project[] = [
 
 
 export const CONTACT = {
-  name: "Justin Heisey",
+  name: "Justin Heisler",
   subtitle: "Software Engineer",
   location: "Canada",
   email: "jheisler01@gmail.com",

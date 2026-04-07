@@ -89,7 +89,7 @@ const SettingsIosApp: React.FC = () => {
             </Group>
 
             <Foot>
-              Designed & built by Justin Heisey.
+              Designed & built by Heisey.
             </Foot>
           </>
         )}
