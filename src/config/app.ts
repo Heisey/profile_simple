@@ -102,6 +102,13 @@ export const blogPosts = [
       "React State Seperation: How to stop you app from turning into a dumpster fire",
     image: "/articles/react-state-separation.png",
     link: "https://medium.com/@jheisler01/react-state-separation-adf7e1289cea",
+  },
+  {
+    id: 2,
+    date: "May 7, 2026",
+    title: "Stop Pretending Your Data Already Lives in the Database",
+    image: "/articles/data-interfaces.png",
+    link: "https://medium.com/@jheisler01/stop-pretending-your-data-already-lives-in-the-database-9a053f147b19"
   }
 ];
 
